@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User</title>
+	 <meta charset="UTF-8">
+	 <link rel="stylesheet" type="text/css" href="./static/Semantic-UI/dist/semantic.css">
+	 <script type="text/javascript" src="./static/scripts/jquery-3.3.1.min.js"></script>
+	 <script type="text/javascript" src="./static/Semantic-UI/dist/semantic.js"></script>
+	 <script type="text/javascript" src="./static/scripts/sessions.js"></script>
+	 <script type="text/javascript">
+	 	function toggle_menu() {
+			// body...
+			$('._menu').toggle("slide");
+		}
+		function toggle_register_shop(){
+			$('.register_shop').toggle();
+		}
+	 </script>
+</head>
+<body>
+	<div class="ui blue inverted top attached  menu">
+		  	<a class="active item"><h3>E-Commerce</h3></a>
+		  	<a class=" active item" href="/ecommerce/ui/">Home</a>
+
+		  <div class="right menu">
+		  	<div class="item">
+		      <div class="ui left icon action input">
+			    <i class="search icon"></i>
+			    <input type="text" placeholder="Order #">
+			    <div class="ui teal submit button">Search</div>
+			  </div>
+		    </div>
+		    <a class="ui item" onclick="toggle_menu()"><i class="user icon"></i></a>
+		  </div>
+	</div>
+	
+	<div class="ui grid" style="margin-top: -10px">
+		<div class="row _menu" style="display: none;position: absolute;z-index: 100;">
+			<div class="ui right floated five wide column">		
+					<div class="ui placeholder segment">
+						<div class="ui blue submit button" onclick="logout()">Logout</div>
+					</div>
+				
+			</div>
+		</div>
+		<div class="ui row">
+			<div class="ui three wide column">
+				<div class="ui vertical menu">
+				  <div class="item">
+				    <div class="header">Shop</div>
+				    <div class="menu">
+				      <a class="item">View</a>
+				      <a class="item" onclick="toggle_register_shop()">Registration</a>
+				    </div>
+				  </div>
+				  <div class="item">
+				    <div class="header">CMS Solutions</div>
+				    <div class="menu">
+				      <a class="item">Rails</a>
+				      <a class="item">Python</a>
+				      <a class="item">PHP</a>
+				    </div>
+				  </div>
+				  <div class="item">
+				    <div class="header">Hosting</div>
+				    <div class="menu">
+				      <a class="item">Shared</a>
+				      <a class="item">Dedicated</a>
+				    </div>
+				  </div>
+				  <div class="item">
+				    <div class="header">Support</div>
+				    <div class="menu">
+				      <a class="item">E-mail Support</a>
+				      <a class="item">FAQs</a>
+				    </div>
+				  </div>
+				</div>
+			</div>
+			<div class="ui thirteen wide column">
+				<div class="ui segments" style="min-height: 410px;">
+						<div class="ui segment"><div class="ui centered grid"><div class="ui seven wide column">
+							<div class="ui placeholder segment register_shop" style="display: none;margin-top: 5%;">
+								<div class="ui form" ><form id="shop_form">
+							        <div class="field">
+							          <label>Shop Name</label>
+							          <div class="ui large left icon input">
+							            <input type="text" name="name" placeholder="Name">
+							            <i class="user icon"></i>
+							          </div>
+							        </div>
+							        <div class="field">
+							          <label>Shop Phone</label>
+							          <div class="ui left icon input">
+							            <input type="text" name="phone" placeholder="Phone No">
+							            <i class="phone icon"></i>
+							          </div>
+							        </div>
+							        <div class="field">
+									    <label>Description</label>
+									    <textarea></textarea>
+									 </div>
+
+									<div class="field">
+							          <label>Address</label>
+											<div class="ui left icon input">
+											  <input type="text" placeholder="Block No" name="block"> 
+											  <i class="address card icon"></i>
+											</div>
+							        </div>
+							       <div class="field">
+							        	<label>Street</label>
+							        	<div class="ui left icon input">
+											  <input type="text" placeholder="Street Name" name="street">
+											  <i class="address card icon"></i> 
+										</div>
+							        </div>
+							        <div class="field">
+							        	<label>Area</label>
+							        	<div class="ui left icon input">
+											  <input type="text" placeholder="Area" name="area">
+											  <i class="address card icon"></i> 
+										</div>
+							        </div>
+							        <div class="field">
+							        	<label>Pincode</label>
+							        	<div class="ui left icon input">
+											  <input type="text" placeholder="Pincode" name="princode">
+											  <i class="address card icon"></i> 
+										</div>
+							        </div>
+
+
+							        <div class="ui blue submit button" onclick="signup()">Register</div></form>
+								</div>
+							</div>
+					</div></div></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<input type="hidden" id="base_addr" value="http://locahost:5000" />
+	<input type="hidden" id="username" value="">
+	<input type="hidden" id="password" value="">
+</body>
+</html>
