@@ -57,6 +57,7 @@ function signup(){
             dataType: 'text',
         }) .done(function (json){
             console.log(json,json['response'],json['message'],typeof(json));
+            json=JSON.parse(json);
             if(json['response']==1){
                 alert('success');
                 show_form('.login_form','.login_btn');

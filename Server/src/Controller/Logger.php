@@ -19,7 +19,7 @@
 	    $data=$request->getParsedBody();
 	    $user=new User();
 	    $resp=$user->addUser($data['name'],$data['email'],$data["password"]);
-	    echo var_dump($resp);
+	    //echo var_dump($resp);
 	    $response=$response->withJson($resp);
 	    return $response;
 	});
