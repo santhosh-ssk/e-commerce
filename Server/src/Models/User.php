@@ -1,14 +1,13 @@
 <?php 
 	
-	namespace App\Utils;
-	use App\DOA\SqlConn;
+	namespace App\Models;
+	use App\Utils\SqlConn;
 	class User{
 		private $__tablename__="USER";
-		private $name,$email,$password,$role,$tmp,$db_connect;
+		private $name,$email,$password,$role,$tmp,$db_connect,$is_exist,$userId;
 		public function __construct(){
-			//echo var_dump(User);
-			//echo "user class called";
 			$this->db_connect= new SqlConn();
+			$this->is_exist=false;
 		}
 		public function addUser($name,$email,$password){
 			$this->name=$name;
@@ -22,18 +21,25 @@
 			}
 			return $resp;
 		}
-		public function query($username){
-			$object=array("table_name"=>"USER","fields"=>array("*"),"where"=>array("email"=>$username));			
+		public function query($username,$password){
+			$object=array("table_name"=>"USER","fields"=>array("*"),"where"=>array("email"=>$username));
 			$result=$this->db_connect->query($object,0);
-			if(count($result)==1){
+			if(count($result)==1 && password_verify($password,$result[0]['password'])){
 				$this->name= $result[0]['name'];
 				$this->email=$result[0]['email'];
 				$this->password=$result[0]['password'];
 				$this->role=$result[0]['role'];
+				$this->is_exist=true;
+				$this->userId=$result[0]['user_id'];
+				return true;
 			}
+			else false;
 		}
 		public function getRole(){
 			return $this->role;
+		}
+		public function getUserId(){
+			return $this->userId;
 		}
 		public function checkUser($password){
 				if(password_verify($password,$this->password))

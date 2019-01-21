@@ -7,13 +7,25 @@
 	 <script type="text/javascript" src="./static/scripts/jquery-3.3.1.min.js"></script>
 	 <script type="text/javascript" src="./static/Semantic-UI/dist/semantic.js"></script>
 	 <script type="text/javascript" src="./static/scripts/sessions.js"></script>
+	 <script type="text/javascript" src="./static/scripts/shop.js"></script>
 	 <script type="text/javascript">
 	 	function toggle_menu() {
 			// body...
 			$('._menu').toggle("slide");
 		}
+		function hidden(){
+			$('.register_shop').hide();
+			$('.shopviews').hide();
+		}
 		function toggle_register_shop(){
-			$('.register_shop').toggle();
+			hidden();
+			$('.register_shop').show();
+		}
+		function toggle_shopviews(){
+			hidden();
+			$('.shopviews').show();
+			viewShops($('#userId').val(),$('#password').val());
+			
 		}
 	 </script>
 </head>
@@ -49,7 +61,7 @@
 				  <div class="item">
 				    <div class="header">Shop</div>
 				    <div class="menu">
-				      <a class="item">View</a>
+				      <a class="item" onclick="toggle_shopviews()">View</a>
 				      <a class="item" onclick="toggle_register_shop()">Registration</a>
 				    </div>
 				  </div>
@@ -79,62 +91,68 @@
 			</div>
 			<div class="ui thirteen wide column">
 				<div class="ui segments" style="min-height: 410px;">
-						<div class="ui segment"><div class="ui centered grid"><div class="ui seven wide column">
-							<div class="ui placeholder segment register_shop" style="display: none;margin-top: 5%;">
-								<div class="ui form" ><form id="shop_form">
+						<div class="ui segment register_shop" style="display: none;margin-top: 2%;"><div class="ui centered grid "><div class="ui seven wide column">
+							<div class="ui placeholder segment " >
+								<div class="ui form" ><form id="shop_form" onsubmit="event.preventDefault();registerShop()">
 							        <div class="field">
 							          <label>Shop Name</label>
 							          <div class="ui large left icon input">
-							            <input type="text" name="name" placeholder="Name">
+							            <input type="text" name="name" placeholder="Name" required>
 							            <i class="user icon"></i>
 							          </div>
 							        </div>
 							        <div class="field">
 							          <label>Shop Phone</label>
 							          <div class="ui left icon input">
-							            <input type="text" name="phone" placeholder="Phone No">
+							            <input type="text" name="phone" placeholder="Phone No" required>
 							            <i class="phone icon"></i>
 							          </div>
 							        </div>
 							        <div class="field">
 									    <label>Description</label>
-									    <textarea></textarea>
+									    <textarea name="description" required></textarea>
 									 </div>
 
 									<div class="field">
 							          <label>Address</label>
 											<div class="ui left icon input">
-											  <input type="text" placeholder="Block No" name="block"> 
+											  <input type="text" placeholder="Block No" name="block" required> 
 											  <i class="address card icon"></i>
 											</div>
 							        </div>
 							       <div class="field">
 							        	<label>Street</label>
 							        	<div class="ui left icon input">
-											  <input type="text" placeholder="Street Name" name="street">
+											  <input type="text" placeholder="Street Name" name="street" required>
 											  <i class="address card icon"></i> 
 										</div>
 							        </div>
 							        <div class="field">
 							        	<label>Area</label>
 							        	<div class="ui left icon input">
-											  <input type="text" placeholder="Area" name="area">
+											  <input type="text" placeholder="Area" name="area" required>
 											  <i class="address card icon"></i> 
 										</div>
 							        </div>
 							        <div class="field">
 							        	<label>Pincode</label>
 							        	<div class="ui left icon input">
-											  <input type="text" placeholder="Pincode" name="princode">
+											  <input type="text" placeholder="Pincode" name="pincode" required>
 											  <i class="address card icon"></i> 
 										</div>
 							        </div>
 
 
-							        <div class="ui blue submit button" onclick="signup()">Register</div></form>
+							        <input value="Register" class="ui blue submit button" type="submit" required/></form>
 								</div>
 							</div>
 					</div></div></div>
+
+					<div class="ui segment shopviews" style="display: none;">
+						<div class="ui cards _shops">
+							
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -142,5 +160,6 @@
 	<input type="hidden" id="base_addr" value="http://locahost:5000" />
 	<input type="hidden" id="username" value="">
 	<input type="hidden" id="password" value="">
+	<input type="hidden" id="userId" value="">
 </body>
 </html>

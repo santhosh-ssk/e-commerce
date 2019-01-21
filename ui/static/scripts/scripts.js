@@ -33,6 +33,7 @@ function login(){
                         if(json['response']){
                             sessionStorage.setItem('username', username);
                             sessionStorage.setItem('password', password);
+                            sessionStorage.setItem('userId',json['userId']);
                             window.location="/ecommerce/ui/"+json['url'];
                         }
                         else alert(json['message']);
@@ -54,10 +55,9 @@ function signup(){
             headers: { 'Access-Control-Allow-Origin': '*' },
             type: 'POST',
             crossDomain: true,
-            dataType: 'text',
+            dataType: 'json',
         }) .done(function (json){
             console.log(json,json['response'],json['message'],typeof(json));
-            json=JSON.parse(json);
             if(json['response']==1){
                 alert('success');
                 show_form('.login_form','.login_btn');

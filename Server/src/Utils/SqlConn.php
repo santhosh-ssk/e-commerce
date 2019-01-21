@@ -1,5 +1,6 @@
 <?php
-	
+	namespace App\Utils;
+
 	class SqlConn{
 	private $servername= "localhost";
 	private $username= "user";
@@ -8,7 +9,7 @@
 	protected $conn=null;
 		public function __construct(){
 			// Create connection
-			$this->conn = new mysqli($this->servername, $this->username, $this->password,$this->database);
+			$this->conn = new \mysqli($this->servername, $this->username, $this->password,$this->database);
 
 			// Check connection
 			if ($this->conn->connect_error) {
@@ -55,6 +56,4 @@
 			$this->conn->close();
 		}
 	}
-
-
 ?>
