@@ -34,6 +34,7 @@ function login(){
                             sessionStorage.setItem('username', username);
                             sessionStorage.setItem('password', password);
                             sessionStorage.setItem('userId',json['userId']);
+                            sessionStorage.setItem('token',json['token']);
                             window.location="/ecommerce/ui/"+json['url'];
                         }
                         else alert(json['message']);

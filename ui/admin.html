@@ -3,15 +3,24 @@
 <head>
 	<title>Admin</title>
 	 <meta charset="UTF-8">
+	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	 <link rel="stylesheet" type="text/css" href="./static/Semantic-UI/dist/semantic.css">
+	 <link rel="stylesheet" type="text/css" href="./static/styles/layout.css">
+	 <link rel="stylesheet" type="text/css" href="./static/styles/cards.css">
+	 <link rel="stylesheet" type="text/css" href="./static/styles/admin.css">
 	 <script type="text/javascript" src="./static/scripts/jquery-3.3.1.min.js"></script>
 	 <script type="text/javascript" src="./static/Semantic-UI/dist/semantic.js"></script>
 	 <script type="text/javascript" src="./static/scripts/sessions.js"></script>
+	 <script type="text/javascript" src="./static/scripts/admin.js"></script>
 	 <script type="text/javascript">
 	 	function toggle_menu() {
 			// body...
 			$('._menu').toggle("slide");
 		}
+		$(window).on('load',function(){
+		    //alert('called');
+		   	manageshops();
+		});
 	 </script>
 </head>
 <body>
@@ -51,9 +60,9 @@
 				    </div>
 				  </div>
 				  <div class="item">
-				    <div class="header">CMS Solutions</div>
+				    <div class="header">Shops</div>
 				    <div class="menu">
-				      <a class="item">Rails</a>
+				      <a class="item" onclick="manageshops()">Manage</a>
 				      <a class="item">Python</a>
 				      <a class="item">PHP</a>
 				    </div>
@@ -75,6 +84,9 @@
 				</div>
 			</div>
 			<div class="ui thirteen wide column">
+				<div class="container">
+					<div class="row" id="manageshops"></div>
+				</div>
 				
 			</div>
 		</div>
@@ -83,5 +95,6 @@
 	<input type="hidden" id="username" value="">
 	<input type="hidden" id="password" value="">
 	<input type="hidden" id="userId" value="">
+	<input type="hidden" id="token" value="">
 </body>
 </html>

@@ -52,6 +52,22 @@ function viewShops(userId){
     var url="http://localhost:5000/user/"+userId+"/shop";
     $.get(url,{},function(json){
         console.log(json);
+        var shops="";
+        for(var i=0;i<json.length;i++){
+            var footer_class='progress';
+            if(json[i]['status']=='Authorized')
+                footer_class='active';
+            else if(json[i]['status']=='Unauthorized')
+                footer_class='danger';
+            else
+                footer_class='info';
+            shops+='<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front">';
+            shops+='<h1>'+json[i]['name']+'</h1><p>'+json[i]['description']+'</p><div class="footer '+footer_class+'"><b>Status:</b>&emsp;'+json[i]['status']+'</div></div>';
+            shops+=' <div class="flip-card-back"><h2>Address</h2><p>Block #: <span>'+json[i]['block_name']+'</span><br>Street : <span>'+json[i]['street_name']+'</span><br>Area: <span>'+json[i]['area']+'</span><br>Pincode: <span>'+json[i]['pincode']+'</span></p><div class="footer"><i class="fas fa-mobile-alt"></i> '+json[i]['phone']+'</div></div>';
+            shops+='</div></div></div>'
+        }
+        $('#shopviews').html(shops);
     });
+
 
 }

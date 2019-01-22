@@ -9,7 +9,8 @@ class UserDao extends User{
 
 	public function login($username,$password){
 	    if($this->query($username,$password)){
-	        return array("response"=>1,"message"=>"success","url"=>$this->getRole().".html","userId"=>$this->getUserId());    
+	    	$userId=$this->getUserId();
+	        return array("response"=>1,"message"=>"success","url"=>$this->getRole().".html","userId"=>$userId,'token'=>$this->getToken($userId));    
 	    }
 	    else{
 	        return array("response"=>0,"message"=>"unauthorized user");   

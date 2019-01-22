@@ -5,7 +5,7 @@
 	use App\Models\User;
 	class Shop extends Address{
 		private $__tablename__="SHOP";
-		private $shopId,$name,$ownerId,$description,$phone,$addrId,$isAuth,$db_connect;
+		private $shopId,$name,$ownerId,$description,$phone,$addrId,$isAuth,$status,$db_connect;
 		public function __construct(){
 			parent::__construct();
 			$this->db_connect= new SqlConn();
@@ -21,6 +21,7 @@
 					$this->phone=$phone;
 					$this->description=$description;
 					$this->ownerId=$ownerId;
+					$this->status="In Progress";
 					//unset($result['last_id']);
 					return $result;
 				}
@@ -31,17 +32,34 @@
 		}
 		public function userShops($userId){
 			$object=array("table_name"=>$this->__tablename__,
-						"fields"=>"*",
-						"where"=>array("owner_id"=>$userId)
+						"fields"=>array("*"),
+						"where"=>array("owner_id"=>$userId),
+						"join"=>array(array("tablename"=>"ADDRESS",
+							"joinType"=>"JOIN",
+							"on"=>array("SHOP.addr_id","ADDRESS.addr_id")
+							))
 						);
 			$result=$this->db_connect->query($object,0);
 			return $result;
 		}
-		public function viewShops($username,$password){
-			if($user->query($username,$password))
-				return array('response'=>1,'message'=>'valid user');
-			else
-				return array('response'=>0,'message'=>'invalid user');
+		public function viewShops($userId,$token){
+			$user=new User();
+			if($user->checkToken($userId,$token)){
+				$object=array("table_name"=>$this->__tablename__,
+						"fields"=>array("SHOP.addr_id","area","block_name","description","email","is_auth","USER.name","SHOP.name as ShopName","phone","pincode","SHOP.shop_id","status","street_name"),
+						"join"=>array(array("tablename"=>"ADDRESS",
+							"joinType"=>"JOIN",
+							"on"=>array("SHOP.addr_id","ADDRESS.addr_id")
+							),
+							array("tablename"=>"USER",
+							"joinType"=>"JOIN",
+							"on"=>array("USER.user_id","SHOP.owner_id")
+							))
+						);
+				$result=$this->db_connect->query($object,0);
+				return $result;
+			}
+			return array("response"=>0,"message"=>"unauthorized user");
 		}
 
 	}

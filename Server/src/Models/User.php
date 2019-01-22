@@ -2,10 +2,12 @@
 	
 	namespace App\Models;
 	use App\Utils\SqlConn;
-	class User{
+	use App\Models\UserToken;
+	class User extends UserToken{
 		private $__tablename__="USER";
 		private $name,$email,$password,$role,$tmp,$db_connect,$is_exist,$userId;
 		public function __construct(){
+			parent::__construct();
 			$this->db_connect= new SqlConn();
 			$this->is_exist=false;
 		}
@@ -17,9 +19,17 @@
 			$resp=$this->db_connect->addTableData($this->__tablename__,['name','email','password'],[$this->name,$this->email,$this->password]);
 			//echo var_dump($resp);
 			if($resp['response']==1){
+				$result=$this->addToken($resp['last_id']);
 				unset($resp['last_id']);
+				if($result['response']==1)
+					return $resp;
+				else{
+					$resp['response']=0;
+					$resp['message']=$result['message'];
+					return $resp;
+				}
 			}
-			return $resp;
+			else return $resp;
 		}
 		public function query($username,$password){
 			$object=array("table_name"=>"USER","fields"=>array("*"),"where"=>array("email"=>$username));

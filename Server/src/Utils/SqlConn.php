@@ -20,9 +20,10 @@
 		}
 		public function addTableData($table_name,$attributes,$values){
 			for($i=0;$i<count($values);$i++){
-				$values[$i]=mysqli_real_escape_string($this->conn,$values[$i]);
+				if(is_string($values[$i]))
+				$values[$i]='"'.mysqli_real_escape_string($this->conn,$values[$i]).'"';
 			}
-			$query='INSERT INTO '.$table_name.'('.join(',',$attributes).') VALUES("'.join('","',$values).'");';
+			$query='INSERT INTO '.$table_name.'('.join(',',$attributes).') VALUES('.join(',',$values).');';
 				$resp=null;
 				//echo $query;
 				if ($this->conn->query($query) === TRUE) {
@@ -36,21 +37,43 @@
 		public function query($object,$flag){
 			$__tablename__=$object['table_name'];
 			$fields=$object['fields'];
-			$query='SELECT '.join(',',$fields).' FROM '.$__tablename__;
+			$query='SELECT '.join(',',$fields).' FROM '.$__tablename__.' ';
+			if(array_key_exists("join", $object)){
+				$joinquery='';
+				foreach ($object['join'] as $join) {
+					$joinquery=$joinquery.' '.$join['joinType'].' '.$join['tablename'].' ON '.$join['on'][0].' = '.$join['on'][1].' ';	
+					}
+				$query=$query.' '.$joinquery;
+				
+			}			
+			
 			if(array_key_exists("where", $object)){
 				$where=$object['where'];
 				if($flag==0)
 				foreach ($where as $key => $value) {
-					$query=$query.' WHERE '.$key.'="'.mysqli_real_escape_string($this->conn,$value).'";';
+					if(is_string($value))
+						$value='"'.$value.'"';
+					$query=$query.' WHERE '.$key.'='.$value;
 				}
 			}
+			$query=$query.' ;';
 			//echo $query;
 			$resp=array();
-			$result=$this->conn->query($query);
-			while($row = $result->fetch_assoc()){
+			try{
+				$result=$this->conn->query($query);
+				if($result === FALSE){
+					throw new \Exception($query);
+				}
+				while($row = $result->fetch_assoc()){
 				array_push($resp, $row);
+				}
+				return $resp;
 			}
-			return $resp;
+			catch(Exception $e) {
+			    //...
+			    return array('response'=>0,'message'=>$e);
+			}
+
 		}
 		public function __destruct(){
 			$this->conn->close();
