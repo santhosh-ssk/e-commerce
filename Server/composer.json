@@ -6,6 +6,7 @@
     },
 	"require": {
 		"slim/slim": "^3.0",
-		"palanik/corsslim": "*"
+		"palanik/corsslim": "*",
+		"monolog/monolog": "^1.24"
 	}
 }

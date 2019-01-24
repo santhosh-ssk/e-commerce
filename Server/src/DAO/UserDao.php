@@ -1,26 +1,93 @@
 <?php
 namespace App\DAO;
 use App\Models\User;
+use App\Utils\SqlConn;
 
 class UserDao extends User{
+	private $db_connect;
+
+
 	public function __construct(){
-		parent::__construct();
+		$this->db_connect = new SqlConn();
 	}
 
-	public function login($username,$password){
-	    if($this->query($username,$password)){
-	    	$userId=$this->getUserId();
-	        return array("response"=>1,"message"=>"success","url"=>$this->getRole().".html","userId"=>$userId,'token'=>$this->getToken($userId));    
-	    }
-	    else{
-	        return array("response"=>0,"message"=>"unauthorized user");   
-	    }
+
+	public function verifyUser(){
+		$object = array("tablename" => $this->getTablename(),
+						   "fields" => array( User::PASSWORD),
+					      	"where" => array( User::EMAIL => $this->getEmail() )
+					);
+
+		$result=$this->db_connect->query($object,0);
+		if(count($result)==1 && password_verify($this->getPassword(), $result[0]['password'])){
+			return true;
+		}
+		else{
+			return false;
+		}
+
 	}
-	public function signup($name,$email,$password){
-		if($name=='' || $email=='' || $password=='')
-			return array("response"=>0,"message"=>'invalid name or email or password');
-		return $this->addUser($name,$email,$password);
-	}		
+
+	public function fetchUser($username,$password){
+		$this->setEmail($username);
+		$this->setPassword($password);
+		if($this->verifyUser()){
+			$object = array("tablename" => $this->getTablename(),
+							"fields"    => array("*"),
+			   				"where"     => array( User::EMAIL => $this->getEmail() )
+				);
+			$result=$this->db_connect->query($object,0);
+			
+			if(count($result) == 1){
+				$result=$result[0];
+				$this->setUserId($result['user_id']);
+				$this->setName($result['name']);
+				$this->setPassword($result['password']);
+				$this->setEmail($result['email']);
+				$this->setRole($result['role']);
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+
+		else{
+			return false;
+		}
+
+	}
+
+	public function addUser($user){
+		$fields=array(User::NAME,User::EMAIL,User::PASSWORD);
+		$values=array($user->getName(),$user->getEmail(),$user->getPassword());
+		$resp=$this->db_connect->addTableData(User::TABLENAME,$fields,$values);
+		if($resp['response'] == 1){
+			
+			$this->setUserId($resp['last_id']);
+			$result = $this->addUserToken();
+			unset($resp['last_id']);
+			
+			if($result['response'] == 1)
+				return $resp;
+			else{
+				$resp['response'] = 0;
+				$resp['message']  = $result['message'];
+				return $resp;
+			}
+		}
+		else {
+				return $resp;
+		}
+		
+	}
+
+	public function addUserToken($userId){
+
+	}
+
+	
+	
 }
 
 ?>

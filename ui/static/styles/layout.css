@@ -32,6 +32,6 @@
 	font-weight: bold;
 	font-size: 12px;
 }
-.positive:hover{
+.positive:hover,.negative:hover{
 	cursor: pointer;
 }

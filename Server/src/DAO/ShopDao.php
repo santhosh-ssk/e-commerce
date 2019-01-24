@@ -13,5 +13,6 @@ class ShopDao extends Shop{
 		$result=$this->userShops($userId);
 		return $result;
 	}
+	
 }
 ?>
