@@ -3,6 +3,8 @@ namespace App\Delegate;
 use App\DAO\UserDao;
 use App\Utils\Response;
 
+
+
 class LoginDelegate{
     private $user;
     private $response;
@@ -17,12 +19,18 @@ class LoginDelegate{
         if($result){
             $this->response->setResponse(1);
             $this->response->setMessage("Success");
-            $this->response->setData(array("url" => $this->user->getRole() . '.html'));
+            $this->response->setData(array("url"   => $this->user->getRole() . '.html',
+                                           "token" => $this->user->getToken(),
+                                           "userId"=> $this->user->getUserId()
+                                        )
+                                    );
+            
         }
         else{
             $this->response->setResponse(0);
             $this->response->setMessage("Unauthorized User");
-        }
+       }
+
         return $this->response->getResponse();
     }
     

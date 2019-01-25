@@ -11,38 +11,12 @@
 		private $name, $email, $password, $role, $userId;
 
 		const TABLENAME = "USER";
-		const NAME      = "name";
-		const USER_ID   = "user_id";
-		const PASSWORD  = "password";
-		const EMAIL     = "email";
-		const ROLE      = "role";
+		const NAME      = "USER.name";
+		const USER_ID   = "USER.user_id";
+		const PASSWORD  = "USER.password";
+		const EMAIL     = "USER.email";
+		const ROLE      = "USER.role";
 	
-		
-	
-		public function addUser($name,$email,$password){
-			$this->name  = $name;
-			$this->email = $email;
-			$this->tmp   = $password;
-			$this->password=password_hash($password, PASSWORD_BCRYPT);
-			$resp = $this->db_connect->addTableData($this->__tablename__, ['name', 'email', 'password'], [$this->name, $this->email, $this->password]);
-			//echo var_dump($resp);
-			if($resp['response'] == 1){
-				
-				$result = $this->addToken($resp['last_id']);
-				unset($resp['last_id']);
-				
-				if($result['response'] == 1)
-					return $resp;
-				else{
-					$resp['response'] = 0;
-					$resp['message']  = $result['message'];
-					return $resp;
-				}
-			}
-			else {
-					return $resp;
-			}
-		}
 
 		/**
 		 * Get the value of __tablename__

@@ -5,75 +5,156 @@
 	use App\Models\User;
 
 	class Shop extends Address{
-		private $__tablename__ = "SHOP";
-		private $shopId, $name, $ownerId, $description, $phone, $addrId, $isAuth, $status, $db_connect;
+		const TABLENAME   = "SHOP";
+		const SHOPID      = "SHOP.shop_id";
+		const NAME        = "SHOP.name";
+		const OWNER_ID    = "SHOP.owner_id";
+		const DESCRIPTION = "SHOP.description";
+		const PHONE       = "SHOP.phone";
+		const IS_AUTH     = "SHOP.is_auth";
+		const STATUS      = "SHOP.status";
+		const ADDRID      = "SHOP.addr_id";
+	
+		private $shopId, $name, $ownerId, $description, $phone, $isAuth, $status;
 		
-		public function __construct(){
-			parent::__construct();
-			$this->db_connect = new SqlConn();
-		}
-		
-		public function addShop($ownerId, $name, $phone, $description, $block, $street, $area, $pincode){
-			$resp=$this->addAddress($block, $street, $area, $pincode);
-		
-			if($resp['response'] == 1){
-				
-				$result = $this->db_connect->addTableData($this->__tablename__, ['owner_id', 'name', 'description', 'phone', 'addr_id'], [$ownerId, $name, $description, $phone, $resp['last_id']]);
-
-				if($result['response'] == 1){
-					$this->shopId = $result['last_id'];
-					$this->name   = $name;
-					$this->phone  = $phone;
-					$this->description = $description;
-					$this->ownerId     = $ownerId;
-					$this->status = "In Progress";
-					//unset($result['last_id']);
-					return $result;
-				}
-				else {
-					return $result;
-				}
-			}
-			else {
-					return $resp;
-				}
+		/**
+		 * Get the value of shopId
+		 */ 
+		public function getShopId()
+		{
+				return $this->shopId;
 		}
 
-		public function userShops($userId){
-		
-			$object = array("table_name"=>$this->__tablename__,
-						"fields"=>array("*"),
-						"where"=>array("owner_id"=>$userId),
-						"join"=>array(array("tablename"=>"ADDRESS",
-							"joinType"=>"JOIN",
-							"on"=>array("SHOP.addr_id","ADDRESS.addr_id")
-							))
-						);
-			$result = $this->db_connect->query($object, 0);
-			return $result;
+		/**
+		 * Set the value of shopId
+		 *
+		 * @return  self
+		 */ 
+		public function setShopId($shopId)
+		{
+				$this->shopId = $shopId;
+
+				return $this;
 		}
 
-		public function viewShops($userId, $token){
-			$user=new User();
-			if($user->checkToken($userId, $token)){
-				$object = array("table_name"=>$this->__tablename__,
-						
-						"fields"=>array("SHOP.addr_id", "area", "block_name", "description", "email", "is_auth", "USER.name", "SHOP.name as ShopName", "phone", "pincode", "SHOP.shop_id", "status", "street_name"),
-						
-						"join"=>array(array("tablename" => "ADDRESS",
-								"joinType" => "JOIN",
-								"on"=>array("SHOP.addr_id", "ADDRESS.addr_id")
-								),
-								array("tablename" => "USER",
-								"joinType" => "JOIN",
-								"on"=>array("USER.user_id", "SHOP.owner_id")
-								))
-						);
-				$result = $this->db_connect->query($object, 0);
-				return $result;
-			}
-			return array("response" => 0, "message" => "unauthorized user");
+		/**
+		 * Get the value of name
+		 */ 
+		public function getName()
+		{
+				return $this->name;
 		}
 
+		/**
+		 * Set the value of name
+		 *
+		 * @return  self
+		 */ 
+		public function setName($name)
+		{
+				$this->name = $name;
+
+				return $this;
+		}
+
+		/**
+		 * Get the value of ownerId
+		 */ 
+		public function getOwnerId()
+		{
+				return $this->ownerId;
+		}
+
+		/**
+		 * Set the value of ownerId
+		 *
+		 * @return  self
+		 */ 
+		public function setOwnerId($ownerId)
+		{
+				$this->ownerId = $ownerId;
+
+				return $this;
+		}
+
+		/**
+		 * Get the value of description
+		 */ 
+		public function getDescription()
+		{
+				return $this->description;
+		}
+
+		/**
+		 * Set the value of description
+		 *
+		 * @return  self
+		 */ 
+		public function setDescription($description)
+		{
+				$this->description = $description;
+
+				return $this;
+		}
+
+		/**
+		 * Get the value of phone
+		 */ 
+		public function getPhone()
+		{
+				return $this->phone;
+		}
+
+		/**
+		 * Set the value of phone
+		 *
+		 * @return  self
+		 */ 
+		public function setPhone($phone)
+		{
+				$this->phone = $phone;
+
+				return $this;
+		}
+
+		/**
+		 * Get the value of isAuth
+		 */ 
+		public function getIsAuth()
+		{
+				return $this->isAuth;
+		}
+
+		/**
+		 * Set the value of isAuth
+		 *
+		 * @return  self
+		 */ 
+		public function setIsAuth($isAuth)
+		{
+				$this->isAuth = $isAuth;
+
+				return $this;
+		}
+
+		/**
+		 * Get the value of status
+		 */ 
+		public function getStatus()
+		{
+				return $this->status;
+		}
+
+		/**
+		 * Set the value of status
+		 *
+		 * @return  self
+		 */ 
+		public function setStatus($status)
+		{
+				$this->status = $status;
+
+				return $this;
+		}
 	}
 ?>

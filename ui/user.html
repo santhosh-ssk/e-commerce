@@ -5,6 +5,7 @@
 	 <meta charset="UTF-8">
 	 <link rel="stylesheet" type="text/css" href="./static/Semantic-UI/dist/semantic.css">
 	 <link rel="stylesheet" type="text/css" href="./static/styles/flip_card.css">
+	 <link rel="stylesheet" type="text/css" href="./static/styles/shop.css">
 	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	 <script type="text/javascript" src="./static/scripts/jquery-3.3.1.min.js"></script>
 	 <script type="text/javascript" src="./static/Semantic-UI/dist/semantic.js"></script>
@@ -29,13 +30,9 @@
 			viewShops($('#userId').val(),$('#password').val());
 			
 		}
-		$(window).on('load',function(){
-		    //alert('called');
-		   toggle_shopviews();
-		});
 	 </script>
 </head>
-<body>
+<body onload="toggle_shopviews()">
 	<div class="ui blue inverted top attached  menu">
 		  	<a class="active item"><h3>E-Commerce</h3></a>
 		  	<a class=" active item" href="/ecommerce/ui/">Home</a>
@@ -164,5 +161,7 @@
 	<input type="hidden" id="username" value="">
 	<input type="hidden" id="password" value="">
 	<input type="hidden" id="userId" value="">
+	<script>
+	</script>
 </body>
 </html>

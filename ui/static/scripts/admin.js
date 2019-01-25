@@ -14,6 +14,7 @@ function manageshops(){
             dataType: 'json',
                      }) .done(function (json){
                     console.log(json); 
+                    json = json['data'];
                     var shops="";
                     for(var i=0; i<json.length; i++){
 

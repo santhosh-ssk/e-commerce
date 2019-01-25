@@ -26,7 +26,7 @@ function login(){
             contentType: "application/json",
             
             headers: { 'Access-Control-Allow-Origin': '*' },
-            type: 'POST',
+            type: 'PUT',
             crossDomain: true,
             dataType: 'json',
                      }) .done(function (json){
@@ -34,8 +34,10 @@ function login(){
                         if(json['response']){
                             sessionStorage.setItem('username', username);
                             sessionStorage.setItem('password', password);
-                            sessionStorage.setItem('userId',json['userId']);
-                            sessionStorage.setItem('token',json['token']);
+                            sessionStorage.setItem('userId', json['data']['userId']);
+                            //alert(sessionStorage.getItem('userId'));
+                            sessionStorage.setItem('token',  json['data']['token']);
+
                             window.location="/ecommerce/ui/"+json['data']['url'];
                         }
                         else alert(json['message']);
@@ -43,13 +45,29 @@ function login(){
         }).fail(function(xhr, status, errorThrow){
           console.log('error' + errorThrow)
         });
+        /*$.ajax({
+
+            url: "http://localhost/ecommerce/Server/public/hi",
+            data:JSON.stringify({}),
+            contentType: "application/json",
+            
+            headers: { 'Access-Control-Allow-Origin': '*' },
+            type: 'DELETE',
+            crossDomain: true,
+            dataType: 'json',
+                     }) .done(function (json){
+                        console.log(json);
+        }).fail(function(xhr, status, errorThrow){
+          console.log('error' + errorThrow)
+        });*/
 }
 function signup(){
 	var signup_form = document.getElementById('signup_form');
 	var name        = signup_form.name.value;
 	var email       = signup_form.email.value;
 	var password    = signup_form.password.value;
-	$.ajax({
+    
+    $.ajax({
 
             url: "http://localhost:5000/signup",
             data:JSON.stringify({"name":name, "email":email, "password":password}),

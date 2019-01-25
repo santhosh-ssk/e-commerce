@@ -1,8 +1,8 @@
 <?php
 	use App\Controller\LoginController;
 
-	$app->post("/login", function($request, $response, $arguments) {
-		$resp = new LoginController($request);
+	$app->put("/login", function($request, $response, $arguments) {
+		$resp = new LoginController($request, $this->logger);
 		$resp = $resp->login();
 		return $response->withJson($resp);
 	});

@@ -11,7 +11,9 @@ class UserDao extends User{
 		$this->db_connect = new SqlConn();
 	}
 
-
+	/**
+	 * verifies user using username and password
+	 */
 	public function verifyUser(){
 		$object = array("tablename" => $this->getTablename(),
 						   "fields" => array( User::PASSWORD),
@@ -19,7 +21,8 @@ class UserDao extends User{
 					);
 
 		$result=$this->db_connect->query($object,0);
-		if(count($result)==1 && password_verify($this->getPassword(), $result[0]['password'])){
+
+		if($result['response']==1 && password_verify($this->getPassword(), $result['data'][0]['password'])){
 			return true;
 		}
 		else{
@@ -28,23 +31,46 @@ class UserDao extends User{
 
 	}
 
+	public function verifyUserToken(){
+		$object = array("tablename" => User::_TABLENAME_,
+						"fields"	=> array(User::TOKEN),	
+						"where"     => array( User::_USERID_ => $this->getUserId())
+					   );
+		$result = $this->db_connect->query($object,0);
+		$token  = $result['data'][0]['token']; 
+		
+		if($result['response']==1 && $token == $this->getToken()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	} 
+
+	/**
+	 * retrives user data
+	 */
 	public function fetchUser($username,$password){
 		$this->setEmail($username);
 		$this->setPassword($password);
 		if($this->verifyUser()){
 			$object = array("tablename" => $this->getTablename(),
 							"fields"    => array("*"),
-			   				"where"     => array( User::EMAIL => $this->getEmail() )
-				);
+							"where"     => array( User::EMAIL => $this->getEmail() ),
+							"join"      => array(array("tablename"  => User::_TABLENAME_,
+												 "joinType"   => "JOIN",
+												 "on" =>array(User::USER_ID,User::_USERID_)),   
+				));
 			$result=$this->db_connect->query($object,0);
-			
-			if(count($result) == 1){
-				$result=$result[0];
+			//echo var_dump($result);
+			if($result['response'] == 1){
+				$result=$result['data'][0];
 				$this->setUserId($result['user_id']);
 				$this->setName($result['name']);
 				$this->setPassword($result['password']);
 				$this->setEmail($result['email']);
 				$this->setRole($result['role']);
+				$this->setToken($result['token']);
 				return true;
 			}
 			else{
@@ -58,22 +84,25 @@ class UserDao extends User{
 
 	}
 
-	public function addUser($user){
+	/**
+	 * THis function is used to register user
+	 */
+	public function addUser(){
 		$fields=array(User::NAME,User::EMAIL,User::PASSWORD);
-		$values=array($user->getName(),$user->getEmail(),$user->getPassword());
+		$values=array($this->getName(),$this->getEmail(),$this->getPassword());
 		$resp=$this->db_connect->addTableData(User::TABLENAME,$fields,$values);
 		if($resp['response'] == 1){
 			
 			$this->setUserId($resp['last_id']);
 			$result = $this->addUserToken();
-			unset($resp['last_id']);
-			
-			if($result['response'] == 1)
-				return $resp;
+			if($result['response'] == 1){
+				return $result;
+			}
+				
 			else{
-				$resp['response'] = 0;
-				$resp['message']  = $result['message'];
-				return $resp;
+				$result['response'] = 0;
+				$result['message']  = $resp['message'].' '.$result['message'];
+				return $result;
 			}
 		}
 		else {
@@ -82,12 +111,16 @@ class UserDao extends User{
 		
 	}
 
-	public function addUserToken($userId){
-
+	/**
+	 * This function is used to add user token
+	 */
+	public function addUserToken(){
+		$fields=array(User::_USER_ID_,User::TOKEN);
+		$values=array($this->getUserId(),$this->getToken());
+		//echo 'USER '.$this->getToken();
+		return $this->db_connect->addTableData(User::_TABLENAME_,$fields,$values);
 	}
 
-	
-	
 }
 
 ?>

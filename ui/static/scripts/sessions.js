@@ -2,6 +2,7 @@ $(document).ready(function (argument) {
 	let username = sessionStorage.getItem('username');
 	let password = sessionStorage.getItem('password');
 	let userId   = sessionStorage.getItem('userId');
+	//alert(sessionStorage.getItem('userId'));
 	let token    = sessionStorage.getItem('token');
 	
 	if(username == null || password == null || token == null){

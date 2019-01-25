@@ -1,18 +1,95 @@
-[2019-01-24 17:11:06] slim-app.INFO: visited my site [] {"uid":"9b8f3bf"}
-[2019-01-24 17:11:51] slim-app.INFO: visited my site [] {"uid":"c5217d6"}
-[2019-01-24 17:22:05] slim-app.INFO: hi [] {"uid":"890261d"}
-[2019-01-24 17:29:34] slim-app.INFO: hi [] {"uid":"1b24749"}
-[2019-01-24 17:29:36] slim-app.INFO: hi [] {"uid":"322ed30"}
-[2019-01-24 17:32:04] slim-app.INFO: /var/www/html/ecommerce/Server/public [] {"uid":"e059552"}
-[2019-01-24 17:32:39] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"178a4e6"}
-[2019-01-24 17:33:10] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"186111b"}
-[2019-01-24 17:43:38] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"1fc9a62"}
-[2019-01-24 17:45:43] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"c14c55c"}
-[2019-01-24 17:45:47] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"9e9efad"}
-[2019-01-24 17:47:02] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"c6d97b3"}
-[2019-01-24 17:47:02] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"5321b8c"}
-[2019-01-24 17:47:03] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"e8a57a3"}
-[2019-01-24 17:47:16] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"3d2d41b"}
-[2019-01-24 17:48:58] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"e5c8b41"}
-[2019-01-24 17:48:59] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"641ed77"}
-[2019-01-24 20:11:35] slim-app.INFO: /var/www/html/ecommerce/Server/public../ [] {"uid":"6a5abf4"}
+[2019-01-25 13:21:20] slim-app.WARNING: User Registration Failed:  username: user@gmail.com Message: error in Duplicate entry 'user@gmail.com' for key 'email' [] {"uid":"6c8aaa9"}
+[2019-01-25 13:26:38] slim-app.WARNING: User Registration Failed:  username: user@gmail.com Message: error in Duplicate entry 'user@gmail.com' for key 'email' [] {"uid":"7bfc5b3"}
+[2019-01-25 14:00:05] slim-app.INFO: Unauthorized User Username:  as tried to access [] {"uid":"6efeb21"}
+[2019-01-25 14:00:17] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"9c9f837"}
+[2019-01-25 14:04:50] slim-app.INFO: Unauthorized User Username: hi as tried to access [] {"uid":"954f00f"}
+[2019-01-25 14:53:23] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"8d9840b"}
+[2019-01-25 14:57:22] slim-app.INFO: Failed to register shop: . [] {"uid":"a041048"}
+[2019-01-25 14:59:05] slim-app.INFO: Failed to register shop: . [] {"uid":"3a54e04"}
+[2019-01-25 15:01:06] slim-app.INFO: Failed to register shop: . [] {"uid":"015cbca"}
+[2019-01-25 15:03:21] slim-app.INFO: Failed to register shop: . [] {"uid":"889f3a2"}
+[2019-01-25 15:03:52] slim-app.INFO: Failed to register shop: . [] {"uid":"e27220a"}
+[2019-01-25 15:04:26] slim-app.INFO: Failed to register shop: . [] {"uid":"fe4c122"}
+[2019-01-25 15:05:35] slim-app.INFO: Failed to register shop: . [] {"uid":"2a36a86"}
+[2019-01-25 15:06:43] slim-app.INFO: Failed to register shop: . [] {"uid":"feddff9"}
+[2019-01-25 15:07:00] slim-app.INFO: Failed to register shop: ShopMax. [] {"uid":"0fcfde2"}
+[2019-01-25 15:10:19] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"5a56d8a"}
+[2019-01-25 15:11:29] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"a822949"}
+[2019-01-25 15:12:06] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"73f0381"}
+[2019-01-25 15:14:15] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"d5f0f5d"}
+[2019-01-25 15:14:52] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"7d8110b"}
+[2019-01-25 15:15:09] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"62eda38"}
+[2019-01-25 15:16:11] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"1bd93a1"}
+[2019-01-25 15:16:13] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"9084702"}
+[2019-01-25 15:16:14] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"4fcf3bd"}
+[2019-01-25 15:16:14] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"c45024a"}
+[2019-01-25 15:16:14] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"5cf3620"}
+[2019-01-25 15:16:30] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"0b12fd7"}
+[2019-01-25 15:17:03] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"36447ee"}
+[2019-01-25 15:18:34] slim-app.INFO: Failed to register shop: ShopMax. [] {"uid":"68c6dad"}
+[2019-01-25 15:19:21] slim-app.INFO: Failed to register shop: ShopMax. [] {"uid":"a02948a"}
+[2019-01-25 15:20:26] slim-app.INFO: Failed to register shop: ShopMax. [] {"uid":"ec80b94"}
+[2019-01-25 15:21:28] slim-app.INFO: Failed to register shop: ShopMax. [] {"uid":"2b04f73"}
+[2019-01-25 15:22:25] slim-app.INFO: Failed to register shop: ShopMax. [] {"uid":"5c577b0"}
+[2019-01-25 15:22:59] slim-app.INFO: Failed to register shop: ShopMax. [] {"uid":"d48d453"}
+[2019-01-25 15:24:39] slim-app.INFO: Successfully Registered shop Name: ShopMax. [] {"uid":"b8c80c3"}
+[2019-01-25 15:36:49] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"8ede1bb"}
+[2019-01-25 15:43:50] slim-app.INFO: Successfully Registered shop Name: ABC. [] {"uid":"0904fbf"}
+[2019-01-25 16:08:21] slim-app.INFO: Unauthorized User Username: user@gmail.com as tried to access [] {"uid":"9887eab"}
+[2019-01-25 16:08:30] slim-app.INFO: Unauthorized User Username: admin@gmail.com as tried to access [] {"uid":"89b58ff"}
+[2019-01-25 16:08:37] slim-app.INFO: Unauthorized User Username: admin@gmail.com as tried to access [] {"uid":"58532c7"}
+[2019-01-25 16:09:11] slim-app.INFO: Unauthorized User Username: admin@gmail.com as tried to access [] {"uid":"f375849"}
+[2019-01-25 16:10:09] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"0922822"}
+[2019-01-25 16:34:50] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"3c4bd93"}
+[2019-01-25 16:43:08] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"5291a53"}
+[2019-01-25 16:43:13] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"ce106d7"}
+[2019-01-25 16:43:58] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"465ae0d"}
+[2019-01-25 16:45:06] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"6e420f1"}
+[2019-01-25 16:45:25] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"6f480f0"}
+[2019-01-25 16:47:40] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"564cc81"}
+[2019-01-25 16:48:05] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"2031edc"}
+[2019-01-25 16:49:40] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"6712ded"}
+[2019-01-25 16:49:45] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"56fa3bd"}
+[2019-01-25 16:59:47] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"72613ac"}
+[2019-01-25 16:59:57] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"2d97ca2"}
+[2019-01-25 17:00:53] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"4f1f094"}
+[2019-01-25 17:00:57] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"066aa76"}
+[2019-01-25 17:01:00] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"6e11166"}
+[2019-01-25 17:01:34] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"bb1563d"}
+[2019-01-25 17:01:36] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"2fd8944"}
+[2019-01-25 17:01:54] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"41878bb"}
+[2019-01-25 17:02:03] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"248eb39"}
+[2019-01-25 17:02:22] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"09f5b79"}
+[2019-01-25 17:03:53] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"9a3c8ce"}
+[2019-01-25 17:03:55] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"b51f0ac"}
+[2019-01-25 17:03:57] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"914f30c"}
+[2019-01-25 17:04:06] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"9c43a3d"}
+[2019-01-25 17:04:09] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"cca3b21"}
+[2019-01-25 17:04:10] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"984d78c"}
+[2019-01-25 17:04:21] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"c509ba3"}
+[2019-01-25 17:05:56] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"65fb65a"}
+[2019-01-25 17:05:59] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"8ab3a4b"}
+[2019-01-25 17:06:08] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"b6f7817"}
+[2019-01-25 17:06:08] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"a179196"}
+[2019-01-25 21:49:12] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"1c2a40e"}
+[2019-01-25 21:50:46] slim-app.INFO: Error in fetching shop details by admin 35 message:  [] {"uid":"bea05d2"}
+[2019-01-25 21:51:02] slim-app.INFO: Error in fetching shop details by admin 35 message:  [] {"uid":"a59be32"}
+[2019-01-25 21:51:37] slim-app.INFO: Error in fetching shop details by admin 35 message:  [] {"uid":"99a25c3"}
+[2019-01-25 21:51:47] slim-app.INFO: Error in fetching shop details by admin 35 message:  [] {"uid":"c254b63"}
+[2019-01-25 21:52:57] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"655498b"}
+[2019-01-25 21:54:12] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"7c007c1"}
+[2019-01-25 21:55:16] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"e6084db"}
+[2019-01-25 21:55:47] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"6b822f7"}
+[2019-01-25 21:55:51] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"d1e5e7b"}
+[2019-01-25 21:56:53] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"3bac392"}
+[2019-01-25 21:57:26] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"7c2ec6d"}
+[2019-01-25 21:58:31] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"8db55c2"}
+[2019-01-25 21:58:53] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"8b38ae7"}
+[2019-01-25 22:00:02] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"418a51f"}
+[2019-01-25 22:00:43] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"1000c6a"}
+[2019-01-25 22:24:59] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"a30169d"}
+[2019-01-25 22:25:22] slim-app.WARNING: User Registration Failed:  username: admin@gmail.com Message: error in Duplicate entry 'admin@gmail.com' for key 'email' [] {"uid":"2116e6a"}
+[2019-01-25 22:25:51] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"b376ca0"}
+[2019-01-25 22:26:15] slim-app.INFO: Successfully Registered shop Name: new. [] {"uid":"4b7b57b"}
+[2019-01-25 22:26:19] slim-app.INFO: Successfully fetched User : 36 Shops. [] {"uid":"3c6c8f4"}
+[2019-01-25 22:31:40] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"c3749fc"}

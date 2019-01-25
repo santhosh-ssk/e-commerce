@@ -38,7 +38,7 @@ function registerShop(event){
                 alert('error');
                 
             }
-            $('#shop_form').trigger('reset');
+            //$('#shop_form').trigger('reset');
             
         }).fail(function(xhr, status, errorThrow){
           console.log('error' + errorThrow)

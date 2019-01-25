@@ -20,6 +20,7 @@
 		}
 		
 		public function addTableData($table_name, $attributes, $values){
+			//echo var_dump($values);
 			for($i=0; $i<count($values); $i++){
 				if(is_string($values[$i])){
 					$values[$i]='\'' . mysqli_real_escape_string($this->conn,$values[$i]) . '\'';
@@ -45,6 +46,7 @@
 			
 			if(array_key_exists("join", $object)){
 				$joinquery='';
+				//echo var_dump($object['join']);
 				foreach ($object['join'] as $join) {
 					$joinquery = $joinquery . ' ' . $join['joinType'] . ' ' . $join['tablename'] . ' ON ' . $join['on'][0] . ' = ' . $join['on'][1] . ' ';	
 					}
@@ -65,7 +67,8 @@
 			$query = $query . ' ;';
 			//echo $query;
 			$resp = array();
-			
+			$response=array("response" =>1 , "message" => "sucess", "data" => array());
+
 			try{
 				$result = $this->conn->query($query);
 				if($result === FALSE){
@@ -73,12 +76,16 @@
 				}
 			}
 			catch(Exception $e) {
-			    return array('response' => 0, 'message' => $e);
+				
+				$response['response'] = 0;
+				$response['message']  = $e;
+				return $response;
 			}
 			while($row = $result->fetch_assoc()){
 				array_push($resp, $row);
 			}
-			return $resp;
+			$response['data'] = $resp;
+			return $response;
 		}
 		public function __destruct(){
 			$this->conn->close();

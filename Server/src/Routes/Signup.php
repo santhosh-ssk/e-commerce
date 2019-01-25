@@ -1,9 +1,9 @@
 <?php
-	use App\DAO\UserDao;
+	use App\Controller\SignupController;
+
 	$app->post('/signup', function($request,$response,$arguments){
-	    $data = $request->getParsedBody();
-	    $user = new UserDao();
-	    $resp = $user->signup($data['name'], $data['email'], $data["password"]);
+	    $signup = new SignupController($request,$this->logger);
+	    $resp = $signup->registerUser();
 	    $response = $response->withJson($resp);
 	    return $response;
 	});
