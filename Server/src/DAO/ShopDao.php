@@ -48,7 +48,7 @@ class ShopDao extends Shop{
 
 	public function fetchshops(){
 		$object = array("tablename" => Shop::TABLENAME,
-							"fields"    => array("*"),
+							"fields"    => array(Shop::SHOPID,Shop::NAME,Shop::STATUS,Shop::PHONE,Shop::BLOCK,Shop::STREET,Shop::AREA,Shop::PINCODE),
 							"where"     => array( Shop::OWNER_ID => $this->getOwnerId() ),
 							"join"      => array(array("tablename"  => Shop::_TABLENAME_,
 												 "joinType"   => "JOIN",
@@ -69,9 +69,9 @@ class ShopDao extends Shop{
 		if($adminUser->verifyUserToken()){
 
 			$object = array("tablename" => Shop::TABLENAME,
-							"fields"    => array(Shop::ADDRID, Shop::AREA, Shop::BLOCK, Shop::DESCRIPTION, 
+							"fields"    => array(Shop::ADDRID, Shop::AREA, Shop::BLOCK, 
 												 Shop::IS_AUTH, Shop::NAME.' AS ShopName', Shop::PHONE, Shop::SHOPID, Shop::STATUS, 
-												 Shop::STREET,Shop::PINCODE),
+												 Shop::STREET,Shop::PINCODE,UserDao::NAME,UserDao::EMAIL),
 							"join"      => array( array("tablename"  => Shop::_TABLENAME_,
 												        "joinType"   => "JOIN",
 														 "on" =>array(Shop::ADDRID,Shop::_ADDRID_)

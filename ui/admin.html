@@ -2,99 +2,87 @@
 <html>
 <head>
 	<title>Admin</title>
-	 <meta charset="UTF-8">
-	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	 <link rel="stylesheet" type="text/css" href="./static/Semantic-UI/dist/semantic.css">
-	 <link rel="stylesheet" type="text/css" href="./static/styles/layout.css">
-	 <link rel="stylesheet" type="text/css" href="./static/styles/cards.css">
-	 <link rel="stylesheet" type="text/css" href="./static/styles/admin.css">
-	 <script type="text/javascript" src="./static/scripts/jquery-3.3.1.min.js"></script>
-	 <script type="text/javascript" src="./static/Semantic-UI/dist/semantic.js"></script>
-	 <script type="text/javascript" src="./static/scripts/sessions.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./static/styles/navbar.css">
+	<link rel="stylesheet" type="text/css" href="./static/styles/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./static/styles/user.css">
+	<link rel="stylesheet" type="text/css" href="./static/styles/form.css">
+	<link rel="stylesheet" type="text/css" href="./static/styles/admin.css">
+	<link rel="stylesheet" type="text/css" href="./static/styles/cards.css">
+
+	<script type="text/javascript" src="./static/scripts/jquery-3.3.1.min.js"></script>
+	<script src="./static/scripts/mustache.min.js"></script>
+	<script type="text/javascript" src="./static/scripts/sessions.js"></script>
 	 <script type="text/javascript" src="./static/scripts/admin.js"></script>
 	 <script type="text/javascript">
-	 	function toggle_menu() {
-			// body...
-			$('._menu').toggle("slide");
+		
+		function hidden(){
 		}
-		$(window).on('load',function(){
-		    //alert('called');
-		   	manageshops();
-		});
-	 </script>
-</head>
-<body>
-	<div class="ui blue inverted top attached  menu">
-		  	<a class="active item"><h3>E-Commerce</h3></a>
-		  	<a class=" active item" href="/ecommerce/ui/">Home</a>
+		
+	</script>
 
-		  <div class="right menu">
-		  	<div class="item">
-		      <div class="ui left icon action input">
-			    <i class="search icon"></i>
-			    <input type="text" placeholder="Order #">
-			    <div class="ui teal submit button">Search</div>
-			  </div>
-		    </div>
-		    <a class="ui item" onclick="toggle_menu()"><i class="user icon"></i></a>
-		  </div>
-	</div>
-	
-	<div class="ui grid" style="margin-top: -10px">
-		<div class="row _menu" style="display: none;position: absolute;z-index: 100;">
-			<div class="ui right floated five wide column">		
-					<div class="ui placeholder segment">
-						<div class="ui blue submit button" onclick="logout()">Logout</div>
+</head>
+<body onload="manageshops()">
+	<nav>
+			<div class="searchbox"><input type="text" class="search" placeholder="Search for products, brands and more"><span class="search_icon"><i class="fas fa-search"></i></span></div>
+			<ul class="right_menu">
+				<li ><a class="item" href="#">More <i class="fas fa-angle-up"></i></a></li>
+				<li ><a class="item cart" href="#"><span id="cart_no">2</span><i class="fas fa-shopping-cart"></i> Cart</a></li>
+				<li ><div class="item dropdown" href="#"><span class="dropdown-title">Santhosh <i class="fas fa-angle-up"></i></span>
+					<div class="dropdown-content">
+						<center><div class="arrow-up"></div></center>
+						<div class="dropdown-menu">
+							<a><i class="fas fa-user-circle"></i> My Profile</a>
+							<a><i class="fas fa-plus"></i> Flipkart Plus Zone</a>
+							<a><i class="fas fa-gamepad"></i> Game Zone</a>
+							<a><i class="fas fa-upload"></i> Orders</a>
+							<a><i class="fas fa-heart"></i> Wishlist</a>
+							<a><i class="fas fa-credit-card"></i> Rewards</a>
+							<a><i class="fas fa-wallet"></i> Gift Cards</a>
+							<a><i class="fas fa-bell"></i> Notifications</a>
+							<a onclick="logout()"><i class="fas fa-power-off"></i> Logout</a>
+						</div>
 					</div>
+				</div></li>
 				
+			</ul>
+	</nav>
+	<div class="container">
+		<div class="row main content">
+			<div class="col-sm-2 col-md-2 col-lg-2 verticalMenu">
+				<ul>
+					<li class="header menuitem"><a>Shops</a></li>
+					<li class="menuitem" onclick="manageshops()"><a>Manage</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-10 sol-md-10 col-lg-10 main" style="float:right;">
+				<div class="container main manageshops"  >
+                </div>
+                
 			</div>
 		</div>
-		<div class="ui row">
-			<div class="ui three wide column">
-				<div class="ui vertical menu">
-				  <div class="item">
-				    <div class="header">Co-Mangers</div>
-				    <div class="menu">
-				      <a class="item">View</a>
-				      <a class="item">Authorization</a>
-				    </div>
-				  </div>
-				  <div class="item">
-				    <div class="header">Shops</div>
-				    <div class="menu">
-				      <a class="item" onclick="manageshops()">Manage</a>
-				      <a class="item">Python</a>
-				      <a class="item">PHP</a>
-				    </div>
-				  </div>
-				  <div class="item">
-				    <div class="header">Hosting</div>
-				    <div class="menu">
-				      <a class="item">Shared</a>
-				      <a class="item">Dedicated</a>
-				    </div>
-				  </div>
-				  <div class="item">
-				    <div class="header">Support</div>
-				    <div class="menu">
-				      <a class="item">E-mail Support</a>
-				      <a class="item">FAQs</a>
-				    </div>
-				  </div>
+	</div>	
+	<script type="text/template" id="shopcards">
+		{{#shops}}
+			<div class="card" id="shop{{shop_id}}">
+				<div class="header">{{ShopName}}</div>
+                <div class="meta-data">
+                    <span>Registered By</span><br>
+                    <span><i class="far fa-user"></i>     {{name}}</span><br>
+                    <span><i class="far fa-envelope"></i> {{email}}</span>
+                </div>
+                <div class="data">Shop Address:<br>
+					<span>Block#: {{block_name}}</span><br>
+					<span>Street: {{street_name}}</span><br>
+					<span>Area:   {{area}}</span><br>
+					<span>Pincode:{{pincode}}</span><br>
+                </div>
+				<div class="footer">
+					<span><b><i class="fas fa-mobile-alt"></i>: </b>{{phone}}</span><br>
+					<span class="status">Status: {{status}}</span>
 				</div>
 			</div>
-			<div class="ui thirteen wide column">
-				<div class="container">
-					<div class="row" id="manageshops"></div>
-				</div>
-				
-			</div>
-		</div>
-	</div>
-	<input type="hidden" id="base_addr" value="http://locahost:5000" />
-	<input type="hidden" id="username" value="">
-	<input type="hidden" id="password" value="">
-	<input type="hidden" id="userId" value="">
-	<input type="hidden" id="token" value="">
+		{{/shops}}
+	</script>
 </body>
 </html>

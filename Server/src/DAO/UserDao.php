@@ -115,7 +115,7 @@ class UserDao extends User{
 	 * This function is used to add user token
 	 */
 	public function addUserToken(){
-		$fields=array(User::_USER_ID_,User::TOKEN);
+		$fields=array(User::_USERID_,User::TOKEN);
 		$values=array($this->getUserId(),$this->getToken());
 		//echo 'USER '.$this->getToken();
 		return $this->db_connect->addTableData(User::_TABLENAME_,$fields,$values);

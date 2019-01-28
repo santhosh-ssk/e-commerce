@@ -1,0 +1,34 @@
+body{
+    height: 100vh;
+    margin: 0px;
+    font-family: sans-serif;
+}
+.main{
+    position: relative;
+    
+}
+
+.buttons{
+    width: 100%;
+    height: 50px;
+}
+.buttons button{
+    border: none;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    border-bottom: 3px solid #a897ff;
+    float: left;
+    font-size: 18px;
+}
+.buttons .active{
+    font-weight: bold;
+    border: 3px solid #2e65fe;
+}
+
+#signup_form{
+    display: none;
+}
+.form_container{
+    border: 1px solid #cccccc;
+}

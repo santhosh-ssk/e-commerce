@@ -2,20 +2,20 @@
 <html>
 <head>
 	<title>User</title>
-	 <meta charset="UTF-8">
-	 <link rel="stylesheet" type="text/css" href="./static/Semantic-UI/dist/semantic.css">
-	 <link rel="stylesheet" type="text/css" href="./static/styles/flip_card.css">
-	 <link rel="stylesheet" type="text/css" href="./static/styles/shop.css">
-	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	 <script type="text/javascript" src="./static/scripts/jquery-3.3.1.min.js"></script>
-	 <script type="text/javascript" src="./static/Semantic-UI/dist/semantic.js"></script>
-	 <script type="text/javascript" src="./static/scripts/sessions.js"></script>
-	 <script type="text/javascript" src="./static/scripts/shop.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./static/styles/navbar.css">
+	<link rel="stylesheet" type="text/css" href="./static/styles/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./static/styles/user.css">
+	<link rel="stylesheet" type="text/css" href="./static/styles/form.css">
+	<link rel="stylesheet" type="text/css" href="./static/styles/shop.css">
+	<link rel="stylesheet" type="text/css" href="./static/styles/cards.css">
+
+	<script type="text/javascript" src="./static/scripts/jquery-3.3.1.min.js"></script>
+	<script src="./static/scripts/mustache.min.js"></script>
+	<script type="text/javascript" src="./static/scripts/sessions.js"></script>
+	 <script type="text/javascript" src="./static/scripts/user.js"></script>
 	 <script type="text/javascript">
-	 	function toggle_menu() {
-			// body...
-			$('._menu').toggle("slide");
-		}
+		
 		function hidden(){
 			$('.register_shop').hide();
 			$('.shopviews').hide();
@@ -27,141 +27,125 @@
 		function toggle_shopviews(){
 			hidden();
 			$('.shopviews').show();
-			viewShops($('#userId').val(),$('#password').val());
-			
+			viewShops(sessionStorage.getItem('userId'),sessionStorage.getItem('password'));
 		}
-	 </script>
+	</script>
+
 </head>
 <body onload="toggle_shopviews()">
-	<div class="ui blue inverted top attached  menu">
-		  	<a class="active item"><h3>E-Commerce</h3></a>
-		  	<a class=" active item" href="/ecommerce/ui/">Home</a>
-
-		  <div class="right menu">
-		  	<div class="item">
-		      <div class="ui left icon action input">
-			    <i class="search icon"></i>
-			    <input type="text" placeholder="Order #">
-			    <div class="ui teal submit button">Search</div>
-			  </div>
-		    </div>
-		    <a class="ui item" onclick="toggle_menu()"><i class="user icon"></i></a>
-		  </div>
-	</div>
-	
-	<div class="ui grid" style="margin-top: -10px">
-		<div class="row _menu" style="display: none;position: absolute;z-index: 100;">
-			<div class="ui right floated five wide column">		
-					<div class="ui placeholder segment">
-						<div class="ui blue submit button" onclick="logout()">Logout</div>
+	<nav>
+			<div class="searchbox"><input type="text" class="search" placeholder="Search for products, brands and more"><span class="search_icon"><i class="fas fa-search"></i></span></div>
+			<ul class="right_menu">
+				<li ><a class="item" href="#">More <i class="fas fa-angle-up"></i></a></li>
+				<li ><a class="item cart" href="#"><span id="cart_no">2</span><i class="fas fa-shopping-cart"></i> Cart</a></li>
+				<li ><div class="item dropdown" href="#"><span class="dropdown-title">Santhosh <i class="fas fa-angle-up"></i></span>
+					<div class="dropdown-content">
+						<center><div class="arrow-up"></div></center>
+						<div class="dropdown-menu">
+							<a><i class="fas fa-user-circle"></i> My Profile</a>
+							<a><i class="fas fa-plus"></i> Flipkart Plus Zone</a>
+							<a><i class="fas fa-gamepad"></i> Game Zone</a>
+							<a><i class="fas fa-upload"></i> Orders</a>
+							<a><i class="fas fa-heart"></i> Wishlist</a>
+							<a><i class="fas fa-credit-card"></i> Rewards</a>
+							<a><i class="fas fa-wallet"></i> Gift Cards</a>
+							<a><i class="fas fa-bell"></i> Notifications</a>
+							<a onclick="logout()"><i class="fas fa-power-off"></i> Logout</a>
+						</div>
 					</div>
+				</div></li>
 				
+			</ul>
+	</nav>
+	<div class="container">
+		<div class="row main content">
+			<div class="col-sm-2 col-md-2 col-lg-2 verticalMenu">
+				<ul>
+					<li class="header menuitem"><a>Shops</a></li>
+					<li class="menuitem" onclick="toggle_shopviews()"><a>View</a></li>
+					<li class="menuitem" onclick="toggle_register_shop()"><a>Register</a></li>
+				</ul>
 			</div>
-		</div>
-		<div class="ui row">
-			<div class="ui three wide column">
-				<div class="ui vertical menu">
-				  <div class="item">
-				    <div class="header">Shop</div>
-				    <div class="menu">
-				      <a class="item" onclick="toggle_shopviews()">View</a>
-				      <a class="item" onclick="toggle_register_shop()">Registration</a>
-				    </div>
-				  </div>
-				  <div class="item">
-				    <div class="header">CMS Solutions</div>
-				    <div class="menu">
-				      <a class="item">Rails</a>
-				      <a class="item">Python</a>
-				      <a class="item">PHP</a>
-				    </div>
-				  </div>
-				  <div class="item">
-				    <div class="header">Hosting</div>
-				    <div class="menu">
-				      <a class="item">Shared</a>
-				      <a class="item">Dedicated</a>
-				    </div>
-				  </div>
-				  <div class="item">
-				    <div class="header">Support</div>
-				    <div class="menu">
-				      <a class="item">E-mail Support</a>
-				      <a class="item">FAQs</a>
-				    </div>
-				  </div>
+			<div class="col-sm-10 sol-md-10 col-lg-10 main" style="float:right;">
+				
+				<div class="container main shopviews"  >
 				</div>
-			</div>
-			<div class="ui thirteen wide column">
-				<div class="ui_segments" style="min-height: 410px;">
-						<div class="register_shop" style="display: none;"><div class="ui centered grid "><div class="ui seven wide column">
-							<div class="ui placeholder segment " >
-								<div class="ui form" ><form id="shop_form" onsubmit="event.preventDefault();registerShop()">
-							        <div class="field">
-							          <label>Shop Name</label>
-							          <div class="ui large left icon input">
-							            <input type="text" name="name" placeholder="Name" required>
-							            <i class="user icon"></i>
-							          </div>
-							        </div>
-							        <div class="field">
-							          <label>Shop Phone</label>
-							          <div class="ui left icon input">
-							            <input type="text" name="phone" placeholder="Phone No" required>
-							            <i class="phone icon"></i>
-							          </div>
-							        </div>
-							        <div class="field">
-									    <label>Description</label>
-									    <textarea name="description" required></textarea>
-									 </div>
 
-									<div class="field">
-							          <label>Address</label>
-											<div class="ui left icon input">
-											  <input type="text" placeholder="Block No" name="block" required> 
-											  <i class="address card icon"></i>
+				<div class="container main">
+						<div class="main register_shop" style="display:none">
+								<form class="main" id="shop_form" onsubmit="event.preventDefault();registerShop()">
+									<div class="flex-row main">
+										<div class="fb-sm-5 fb-md-5 fb-lg-5">
+												<div class="field">
+														<input type="name" id="name" name="name" class="form-control" required/>
+														<i class="fas fa-user"></i>
+														<label for="name">Shop Name</label>
+													</div>
+													<div class="field">
+														<input type="tel" id="phone" name="phone" class="form-control" required/>
+														<i class="fas fa-mobile-alt"></i>
+														<label for="phone">Shop Phone</label>
+													</div>
+							
+													<div class="field">
+															<input type="text" id="area" class="form-control" name="area" required/>
+															<i class="fas fa-address-card"></i>
+															<label for="area">Area</label>
+														</div>
+													
+										</div>
+										<div class="fb-sm-5 fb-md-5 fb-lg-5">
+												<div class="field">
+														<input type="text" id="block" name="block" class="form-control" required/>
+														<i class="fas fa-address-card"></i>
+														<label for="block">Block #</label>
+													</div>
+													<div class="field">
+														<input type="text" id="street" name="street" class="form-control" required/>
+														<i class="fas fa-address-card"></i>
+														<label for="street">Street</label>
+													</div>
+							
+													<div class="field">
+															<input type="text" id="pincode" class="form-control" name="pincode" required/>
+															<i class="fas fa-address-card"></i>
+															<label for="pincode">Pincode</label>
+														</div>
+										</div>
+										<div class="fb-sm-10 fb-md-10 fb-lg-10">
+											<div class="textboxfield">
+												<label for="descripion">Shop Description</label><br>
+												<textarea rows="5" name="description"></textarea>
 											</div>
-							        </div>
-							       <div class="field">
-							        	<label>Street</label>
-							        	<div class="ui left icon input">
-											  <input type="text" placeholder="Street Name" name="street" required>
-											  <i class="address card icon"></i> 
+											<div class="field"><input type="submit" value="Signup" class="primary-btn"/></div>
 										</div>
-							        </div>
-							        <div class="field">
-							        	<label>Area</label>
-							        	<div class="ui left icon input">
-											  <input type="text" placeholder="Area" name="area" required>
-											  <i class="address card icon"></i> 
-										</div>
-							        </div>
-							        <div class="field">
-							        	<label>Pincode</label>
-							        	<div class="ui left icon input">
-											  <input type="text" placeholder="Pincode" name="pincode" required>
-											  <i class="address card icon"></i> 
-										</div>
-							        </div>
-
-
-							        <input value="Register" class="ui blue submit button" type="submit" required/></form>
-								</div>
-							</div>
-					</div></div></div>
-
-					<div class="shopviews" id="shopviews" style="display: none;">
-					</div>
+									</div>
+								</form>
+						</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<input type="hidden" id="base_addr" value="http://locahost:5000" />
-	<input type="hidden" id="username" value="">
-	<input type="hidden" id="password" value="">
-	<input type="hidden" id="userId" value="">
-	<script>
+	</div>	
+	<script type="text/template" id="shopcards">
+		{{#shops}}
+			<div class="card" id="shop{{shop_id}}">
+				<span class="icons">
+					<i class="far fa-edit"      onclick="editShop(this)"></i> 
+					<i class="far fa-trash-alt" onclick="deleteShop(this)"></i>
+				</span>
+				<div class="header">{{name}}</div>
+				<div class="data">Address:<br>
+					<span>Block#: {{block_name}}</span><br>
+					<span>Street: {{street_name}}</span><br>
+					<span>Area:   {{area}}</span><br>
+					<span>Pincode:{{pincode}}</span><br>
+				</div>
+				<div class="footer">
+					<span><b><i class="fas fa-mobile-alt"></i>: </b>{{phone}}</span><br>
+					<span class="status">Status: {{status}}</span>
+				</div>
+			</div>
+		{{/shops}}
 	</script>
 </body>
 </html>

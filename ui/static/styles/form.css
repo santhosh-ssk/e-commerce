@@ -1,0 +1,80 @@
+.form_container{
+    width: 100%;
+    z-index: 10;
+}
+
+.form{
+    padding-top: 20px;
+}
+
+.field{
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 0px 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.field label{
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 10;;
+}
+.form-control  {
+    font-size: 22px;
+    border: none;
+    height: 25px;
+    border-bottom: 3px solid #a897ff;
+    padding: 3px 25px;
+    margin-top: 26px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.textboxfield{
+    margin-top: 26px;
+    position: relative;
+}
+.textboxfield textarea{
+    margin-top: 5px;
+    border: 3px solid #a897ff;
+    font-size: 22px;
+    width: 90%;
+    
+}
+.field i{
+    margin-left: 10px;
+    color: rgba(0, 0, 0, 0.425);
+    position: absolute;
+    top: 55%;
+    left: 0;
+    
+}
+.form-control:focus  {
+    border-bottom: 3px solid #2e65fe;
+}
+.textboxfield textarea:focus{
+    border: 3px solid #2e65fe;
+}
+
+.form-control:focus ~ label{
+    font-weight: bold;
+}
+.form-control:focus ~ i{
+    color: black;
+}
+.primary-btn{
+    border:none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 25px;
+    font-weight: bold;
+    background: #2e65fe;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #2e65fe, #07c8e9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2e65fe, #07c8e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.primary-btn:hover,.buttons button:hover{
+    cursor: pointer;
+}
