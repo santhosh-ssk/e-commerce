@@ -2,6 +2,7 @@
 namespace App\Controller;
 use App\Delegate\UserDelegate;
 use App\Models\Shop;
+use App\Models\User;
 
 class UserController{
     private $request;
@@ -48,10 +49,7 @@ class UserController{
         $result = $this->shop->registerShop($shopobj);
         
         $logMessage = '';
-        if($result['response']==1){
-            $logMessage='Successfully Registered shop Name: '.$name.'.';
-        }
-        else{
+        if($result['response']==0){
             $logMessage='Failed to register shop: '.$name.'.';
         }
         $this->logger->info($logMessage);
@@ -64,21 +62,31 @@ class UserController{
         $result  =  $this->shop->fetch($user_id);
         
         $logMessage = '';
-        if($result['response']==1){
-            $logMessage='Successfully fetched User : '.$user_id.' Shops.';
-        }
-        else{
+        if($result['response']==0){
             $logMessage='Failed to fetch User: '.$user_id.' Shops.';
         }
         $this->logger->info($logMessage);
         
-        return $result['data'];
+        return $result;
     }
     
     public function deleteUserShop(){
         $userId = $this->arguments['userId'];
         $shopId = $this->arguments['shopId'];
         $token  = $this->headers['HTTP_AUTHORIZATION'][0];
+
+        $user = new User();
+        $user->setUserId($userId);
+        $user->setToken($token);
+
+        $result = $this->shop->deleteShop($user,$shopId);
+        
+        $logMessage = '';
+        if($result['response']==0){
+            $logMessage='Failed to delete shop Id:' . $shopId .' by  User Id: '.$user_id.' Error due to: ' . $result['message'] . '.';
+        }
+        $this->logger->info($logMessage);
+        return $result;
     }
 }
 ?>

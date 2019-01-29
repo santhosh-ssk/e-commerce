@@ -33,6 +33,7 @@ function registerShop(event){
             console.log(json);
             if(json['response'] == 1){
                 alert('Registered');
+                viewShops();
             }
             else{
                 alert('error');
@@ -47,29 +48,31 @@ function registerShop(event){
 	return false;
 }
 
-function viewShops(userId){
-    console.log(userId);
-    var url = "http://localhost:5000/user/"+userId+"/shop";
-    var url = "http://localhost/ecommerce/Server/public/user/"+userId+"/shop";
+function viewShops(){
+    var url = "http://localhost:5000/user/"+sessionStorage.getItem('userId')+"/shop";
+    var url = "http://localhost/ecommerce/Server/public/user/"+sessionStorage.getItem('userId')+"/shop";
 
     $.get(url, {}, function(json){
         console.log(json);
-        var shopcardsTemplates = $('#shopcards').html();
-        var shops={
-            "shops": json
-        };
-        var result=Mustache.render(shopcardsTemplates, shops);
-        //console.log("result",result);
-        $('.shopviews').html(result);
+        if(json['response']==1){
+            var shopcardsTemplates = $('#shopcards').html();
+            var shops={
+                "shops": json['data']
+            };
+            var result=Mustache.render(shopcardsTemplates, shops);
+            //console.log("result",result);
+            $('.shopviews').html(result);
+        }
     });
 
 }
 
 function deleteShop(object){
-    var shopid=$(object).parent().parent().attr('id');
-    var choice=window.confirm("Do you want to delete this shop");
-    var url = "http://localhost/ecommerce/Server/public/User/"+sessionStorage.getItem('UserId')+"/Shop/"+shopid;
-    var token = sessionStorage.getItem('token');
+    var shopid = $(object).parent().parent().attr('id');
+    shopid     = shopid.slice(4);
+    var choice = window.confirm("Do you want to delete this shop");
+    var url    = "http://localhost:5001/user/"+sessionStorage.getItem('userId')+"/shop/"+shopid;
+    var token  = sessionStorage.getItem('token');
 
     if(choice){
         $.ajax({
@@ -84,6 +87,10 @@ function deleteShop(object){
             dataType: 'json',
                      }) .done(function (json){
                         console.log(json);
+                        if(json['response']==1){
+                            $(object).parent().parent().remove();
+                            viewShops();
+                        }
         }).fail(function(xhr, status, errorThrow){
           console.log('error' + errorThrow)
         });

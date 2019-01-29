@@ -92,5 +92,37 @@ class ShopDao extends Shop{
 			return $response->getResponse();
 		}
 	}
+
+	/***
+	 * this function is used to delete user shop
+	 */
+
+	 public function deleteUserShop($user){
+		$response = new Response();
+		$shopuser = new UserDao();
+		$shopuser->setUserId($user->getUserId());
+		$shopuser->setToken($user->getToken());
+		if($shopuser->verifyUserToken()){
+			$object = array(
+							"tablename" => Shop::TABLENAME,
+							"where"     =>array( 
+											"complex" => array(
+												"AND"=>array(
+											    	Shop::OWNER_ID => $this->getOwnerId(),
+													Shop::SHOPID   => $this->getShopId()
+												)
+											)
+									)
+			);
+
+			$response=$this->db_connect->deleteRecord($object);
+			return $response;
+		}
+		else{
+			$response->setResponse(0);
+			$response->setMessage('UnAuthorized Access');
+			return $response->getResponse();
+		}
+	 }
 }
 ?>

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>User</title>
+	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="./static/styles/navbar.css">
 	<link rel="stylesheet" type="text/css" href="./static/styles/bootstrap.css">
@@ -27,7 +28,7 @@
 		function toggle_shopviews(){
 			hidden();
 			$('.shopviews').show();
-			viewShops(sessionStorage.getItem('userId'),sessionStorage.getItem('password'));
+			viewShops();
 		}
 	</script>
 

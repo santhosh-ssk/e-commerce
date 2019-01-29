@@ -32,7 +32,7 @@
 		 */ 
 		public function setShopId($shopId)
 		{
-				$this->shopId = $shopId;
+				$this->shopId = (int)$shopId;
 
 				return $this;
 		}
@@ -72,7 +72,7 @@
 		 */ 
 		public function setOwnerId($ownerId)
 		{
-				$this->ownerId = $ownerId;
+				$this->ownerId = (int)$ownerId;
 
 				return $this;
 		}

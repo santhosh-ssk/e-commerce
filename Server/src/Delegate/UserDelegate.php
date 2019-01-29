@@ -36,6 +36,16 @@
             $this->response->setData($response['data']);
             return $this->response->getResponse();
         }
+
+        public function deleteShop($user,$shopId){
+            $this->shop->setOwnerId($user->getUserId());
+            $this->shop->setShopId($shopId);
+            $response = $this->shop->deleteUserShop($user);
+            $this->response->setResponse($response['response']);
+            $this->response->setMessage($response['message']);
+            return $this->response->getResponse();
+
+        }
         
     }
 ?>

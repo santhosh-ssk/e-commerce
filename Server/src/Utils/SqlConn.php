@@ -87,6 +87,66 @@
 			$response['data'] = $resp;
 			return $response;
 		}
+
+		public function deleteRecord($object){
+			$query    = 'DELETE FROM ' . $object['tablename'] . ' ';
+			$response = array("response"=>1,"message"=>"success");
+
+			//add where condition to query
+			$where = $object['where'];
+			
+			//add where to query
+			$wherequery =' where ';
+			
+			if(\array_key_exists("simple",$where)){
+				$simple = $where['simple'];
+				foreach ($simple as $key => $value) {
+					$wherequery = $wherequery . $key . ' = ';
+					if(is_string($value)){
+						$value = '\'' . mysqli_real_escape_string($this->conn,$value) . '\'';
+					}
+					$wherequery .= $value . ' ';
+				}
+			}
+
+			if(\array_key_exists("complex",$where)){
+				$complex = $where['complex'];
+				$andquery = "";
+				if(\array_key_exists("AND",$complex)){
+					$and    = $complex['AND'];
+					$andobj = [];
+					foreach ($and as $key => $value) {
+						# code...
+						if(is_string($value)){
+							$value = '\'' . mysqli_real_escape_string($this->conn,$value) . '\'';
+						}
+						array_push($andobj," " . $key . " = ". $value);	
+					}
+					$andobj = join(" and ",$andobj);
+					$wherequery =  $wherequery . $andobj;
+				}
+			}
+
+			
+			
+			//add semicolon to query
+			$query = $query .' '. $wherequery. ' ;';
+
+			//echo $query;
+			
+			try{
+				if($this->conn->query($query) === FALSE){
+					throw new \Exception($query);
+				}
+			}
+			catch(\Exception $e){
+				$response['response'] = 0;
+				$response['message']  = $e->getMessage();	
+			}
+			return $response;
+			
+		}
+
 		public function __destruct(){
 			$this->conn->close();
 		}

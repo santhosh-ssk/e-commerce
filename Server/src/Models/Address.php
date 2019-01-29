@@ -27,7 +27,7 @@
 		 */ 
 		public function setAddrId($addrId)
 		{
-				$this->addrId = $addrId;
+				$this->addrId = (int)$addrId;
 
 				return $this;
 		}

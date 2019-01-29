@@ -33,10 +33,6 @@ class ComposerStaticInita0cae1081f0eeb9e1a0503eb80c786cc
         array (
             'FastRoute\\' => 10,
         ),
-        'C' => 
-        array (
-            'CorsSlim\\' => 9,
-        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -71,10 +67,6 @@ class ComposerStaticInita0cae1081f0eeb9e1a0503eb80c786cc
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
-        ),
-        'CorsSlim\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/palanik/corsslim',
         ),
         'App\\' => 
         array (
