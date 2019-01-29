@@ -7,12 +7,17 @@ namespace Composer\Autoload;
 class ComposerStaticInita0cae1081f0eeb9e1a0503eb80c786cc
 {
     public static $files = array (
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+            'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Component\\Yaml\\' => 23,
+            'Symfony\\Component\\Finder\\' => 25,
             'Slim\\' => 5,
         ),
         'P' => 
@@ -20,6 +25,10 @@ class ComposerStaticInita0cae1081f0eeb9e1a0503eb80c786cc
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
+        ),
+        'O' => 
+        array (
+            'OpenApi\\' => 8,
         ),
         'M' => 
         array (
@@ -33,6 +42,10 @@ class ComposerStaticInita0cae1081f0eeb9e1a0503eb80c786cc
         array (
             'FastRoute\\' => 10,
         ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Annotations\\' => 28,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -40,6 +53,18 @@ class ComposerStaticInita0cae1081f0eeb9e1a0503eb80c786cc
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Symfony\\Component\\Yaml\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/yaml',
+        ),
+        'Symfony\\Component\\Finder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/finder',
+        ),
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
@@ -56,6 +81,10 @@ class ComposerStaticInita0cae1081f0eeb9e1a0503eb80c786cc
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'OpenApi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -67,6 +96,10 @@ class ComposerStaticInita0cae1081f0eeb9e1a0503eb80c786cc
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'Doctrine\\Common\\Annotations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
         ),
         'App\\' => 
         array (
@@ -80,6 +113,13 @@ class ComposerStaticInita0cae1081f0eeb9e1a0503eb80c786cc
             'Pimple' => 
             array (
                 0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
+        ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Lexer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
             ),
         ),
     );
