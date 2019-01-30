@@ -113,3 +113,109 @@
 [2019-01-29 17:13:12] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"7985552"}
 [2019-01-29 21:08:48] slim-app.INFO:  [] {"uid":"aa283c3"}
 [2019-01-29 21:09:35] slim-app.INFO:  [] {"uid":"1ece99c"}
+[2019-01-29 21:55:45] slim-app.INFO:  [] {"uid":"c048f5c"}
+[2019-01-29 21:55:48] slim-app.INFO:  [] {"uid":"095374c"}
+[2019-01-29 21:55:53] slim-app.INFO:  [] {"uid":"aeaec4e"}
+[2019-01-29 21:56:29] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"7ef9899"}
+[2019-01-29 21:56:56] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"3bd230d"}
+[2019-01-29 21:57:48] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"6fcbf82"}
+[2019-01-29 21:58:04] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"4a37c7b"}
+[2019-01-29 21:58:55] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"8498835"}
+[2019-01-29 21:59:04] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"0a9ba5e"}
+[2019-01-29 21:59:21] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"5c264ef"}
+[2019-01-29 21:59:30] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"487aa86"}
+[2019-01-29 22:01:01] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"09c0e1b"}
+[2019-01-29 22:46:16] slim-app.INFO:  [] {"uid":"a5a6005"}
+[2019-01-29 22:46:22] slim-app.INFO:  [] {"uid":"24d9939"}
+[2019-01-30 00:07:36] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"31c350f"}
+[2019-01-30 00:13:14] slim-app.WARNING: User Registration Failed:  username: user@gmail.com Message: error in Duplicate entry 'user@gmail.com' for key 'email' [] {"uid":"7662162"}
+[2019-01-30 00:13:34] slim-app.WARNING: User Registration Failed:  username: user2@gmail.com Message: error in Duplicate entry 'user2@gmail.com' for key 'email' [] {"uid":"f3457af"}
+[2019-01-30 00:14:37] slim-app.INFO: User Registration Success: username: user2@gmail.com [] {"uid":"a9e509b"}
+[2019-01-30 00:38:32] slim-app.WARNING: User Registration Failed:  username: user@gmail.com Message: error in Duplicate entry 'user@gmail.com' for key 'email' [] {"uid":"28377d8"}
+[2019-01-30 00:47:23] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"768fb8c"}
+[2019-01-30 01:11:50] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"2fa9cca"}
+[2019-01-30 01:11:59] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"143991e"}
+[2019-01-30 01:14:22] slim-app.INFO:  [] {"uid":"ad98257"}
+[2019-01-30 01:19:06] slim-app.INFO: Failed to delete shop Id:1 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"8240035"}
+[2019-01-30 01:31:58] slim-app.INFO:  [] {"uid":"bc091ad"}
+[2019-01-30 01:32:40] slim-app.INFO:  [] {"uid":"3406d98"}
+[2019-01-30 08:45:16] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"e53b1f5"}
+[2019-01-30 09:07:42] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"a199d7f"}
+[2019-01-30 17:12:43] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"3bbb621"}
+[2019-01-30 17:46:20] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"8b0d85e"}
+[2019-01-30 17:46:38] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"aafa256"}
+[2019-01-30 17:47:11] slim-app.INFO: Unauthorized User Username: admin@gmail.com as tried to access [] {"uid":"70bc3ad"}
+[2019-01-30 19:47:51] slim-app.INFO: Failed to delete shop Id:1 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"d8ed7c2"}
+[2019-01-30 19:52:26] slim-app.INFO: Failed to delete shop Id:1 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"f4fc828"}
+[2019-01-30 19:52:42] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"a1246b2"}
+[2019-01-30 19:53:10] slim-app.INFO: Failed to delete shop Id:1 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"f841ffc"}
+[2019-01-30 19:53:25] slim-app.INFO: Failed to delete shop Id:1 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"71c6e05"}
+[2019-01-30 19:54:03] slim-app.INFO:  [] {"uid":"b9f6a87"}
+[2019-01-30 19:54:49] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"06ab540"}
+[2019-01-30 19:54:50] slim-app.INFO:  [] {"uid":"5ac520e"}
+[2019-01-30 19:55:01] slim-app.INFO:  [] {"uid":"6ebee66"}
+[2019-01-30 19:55:03] slim-app.INFO:  [] {"uid":"88555f0"}
+[2019-01-30 19:55:04] slim-app.INFO:  [] {"uid":"5a828b4"}
+[2019-01-30 19:55:37] slim-app.INFO:  [] {"uid":"114a398"}
+[2019-01-30 19:56:24] slim-app.INFO: Failed to delete shop Id:1 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"71be029"}
+[2019-01-30 19:57:54] slim-app.INFO:  [] {"uid":"dda9dcc"}
+[2019-01-30 19:57:56] slim-app.INFO:  [] {"uid":"461e1f5"}
+[2019-01-30 19:57:56] slim-app.INFO:  [] {"uid":"4012479"}
+[2019-01-30 19:59:14] slim-app.INFO:  [] {"uid":"097a7c6"}
+[2019-01-30 19:59:17] slim-app.INFO:  [] {"uid":"0cd7f9f"}
+[2019-01-30 19:59:20] slim-app.INFO:  [] {"uid":"d07f027"}
+[2019-01-30 19:59:22] slim-app.INFO:  [] {"uid":"0ac3097"}
+[2019-01-30 19:59:23] slim-app.INFO:  [] {"uid":"6be1d53"}
+[2019-01-30 19:59:26] slim-app.INFO: Failed to delete shop Id:2 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"3ecd51c"}
+[2019-01-30 20:06:12] slim-app.INFO: Failed to delete shop Id:2 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"3f20a7d"}
+[2019-01-30 20:06:28] slim-app.INFO: Failed to delete shop Id:2 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"eca4f56"}
+[2019-01-30 20:06:57] slim-app.INFO:  [] {"uid":"500b15b"}
+[2019-01-30 20:07:00] slim-app.INFO: Failed to delete shop Id:2 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"98fbe53"}
+[2019-01-30 20:08:27] slim-app.INFO: Failed to delete shop Id:2 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"3eec93e"}
+[2019-01-30 20:08:49] slim-app.INFO:  [] {"uid":"3018285"}
+[2019-01-30 20:08:52] slim-app.INFO: Failed to delete shop Id:2 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"4d30a70"}
+[2019-01-30 20:09:19] slim-app.INFO:  [] {"uid":"3b819be"}
+[2019-01-30 20:09:33] slim-app.INFO:  [] {"uid":"edae508"}
+[2019-01-30 20:09:41] slim-app.INFO:  [] {"uid":"d398fcb"}
+[2019-01-30 20:14:42] slim-app.INFO:  [] {"uid":"60f50e4"}
+[2019-01-30 20:15:06] slim-app.INFO:  [] {"uid":"583e368"}
+[2019-01-30 20:15:51] slim-app.INFO:  [] {"uid":"3522c46"}
+[2019-01-30 20:16:29] slim-app.INFO:  [] {"uid":"bcb7767"}
+[2019-01-30 20:37:10] slim-app.INFO:  [] {"uid":"8c84419"}
+[2019-01-30 20:37:13] slim-app.INFO:  [] {"uid":"7725575"}
+[2019-01-30 20:37:15] slim-app.INFO:  [] {"uid":"6a99425"}
+[2019-01-30 20:44:55] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"9cb696c"}
+[2019-01-30 20:45:28] slim-app.INFO:  [] {"uid":"0f9f9cc"}
+[2019-01-30 20:45:44] slim-app.INFO:  [] {"uid":"cba0100"}
+[2019-01-30 20:45:49] slim-app.INFO:  [] {"uid":"06021ec"}
+[2019-01-30 20:45:52] slim-app.INFO:  [] {"uid":"e45194c"}
+[2019-01-30 20:46:06] slim-app.INFO:  [] {"uid":"11b3b60"}
+[2019-01-30 20:46:53] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"7a09c1e"}
+[2019-01-30 20:46:55] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"8d480c6"}
+[2019-01-30 20:47:19] slim-app.INFO:  [] {"uid":"d3572f6"}
+[2019-01-30 20:47:27] slim-app.INFO:  [] {"uid":"49eaed7"}
+[2019-01-30 20:47:34] slim-app.INFO:  [] {"uid":"c58dc3c"}
+[2019-01-30 20:47:44] slim-app.INFO:  [] {"uid":"b3a19aa"}
+[2019-01-30 20:52:09] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"17f9c99"}
+[2019-01-30 20:53:10] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"edfb153"}
+[2019-01-30 20:58:44] slim-app.INFO: Failed to delete shop Id:1 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"ad068c6"}
+[2019-01-30 21:44:47] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"d935559"}
+[2019-01-30 22:08:28] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"b8e5d99"}
+[2019-01-30 22:31:37] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"5d87d5f"}
+[2019-01-30 22:35:12] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"9c57f82"}
+[2019-01-30 22:37:13] slim-app.INFO: Error in authorizing shop details by admin {adminId} message: UnAuthorized Access [] {"uid":"a79567f"}
+[2019-01-30 22:38:09] slim-app.INFO: Error in authorizing shop details by admin {adminId} message: UnAuthorized Access [] {"uid":"cbd815f"}
+[2019-01-30 22:39:09] slim-app.INFO: Error in authorizing shop details by admin {adminId} message: UnAuthorized Access [] {"uid":"5a44f2c"}
+[2019-01-30 22:40:25] slim-app.INFO: Error in authorizing shop details by admin {adminId} message: UnAuthorized Access [] {"uid":"e5dee75"}
+[2019-01-30 22:41:47] slim-app.INFO: Error in authorizing shop details by admin {adminId} message: UnAuthorized Access [] {"uid":"fd6d707"}
+[2019-01-30 22:42:28] slim-app.INFO: Error in authorizing shop details by admin {adminId} message: UnAuthorized Access [] {"uid":"fd463bf"}
+[2019-01-30 22:42:56] slim-app.INFO: Error in authorizing shop details by admin {adminId} message: UnAuthorized Access [] {"uid":"76df5a0"}
+[2019-01-30 22:44:21] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"d8459bd"}
+[2019-01-30 22:45:25] slim-app.INFO: Error in authorizing shop details by admin 35 message: Where condition is not present [] {"uid":"448ad33"}
+[2019-01-30 22:45:48] slim-app.INFO: Error in authorizing shop details by admin 35 message: Where condition is not present [] {"uid":"4e30aa9"}
+[2019-01-30 22:46:30] slim-app.INFO: Error in authorizing shop details by admin 35 message: Where condition is not present [] {"uid":"3d9c963"}
+[2019-01-30 22:46:48] slim-app.INFO: Error in authorizing shop details by admin 35 message: Where condition is not present [] {"uid":"a3957e7"}
+[2019-01-30 22:47:06] slim-app.INFO: Error in authorizing shop details by admin 35 message: Where condition is not present [] {"uid":"892890e"}
+[2019-01-30 22:47:30] slim-app.INFO: Error in authorizing shop details by admin 35 message: Where condition is not present [] {"uid":"87e4f6d"}
+[2019-01-30 22:47:57] slim-app.INFO: Error in authorizing shop details by admin 35 message: Where condition is not present [] {"uid":"b2dc2cc"}
+[2019-01-30 22:49:39] slim-app.INFO: Error in authorizing shop details by admin 35 message: Where condition is not present [] {"uid":"d4d0dea"}

@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 use App\Delegate\AdminDelegate;
+use App\Models\Shop;
 use App\Models\User;
 
 
@@ -38,6 +39,26 @@ class AdminController{
         }
         else{
             $this->logger->info('Error in fetching shop details by admin '.$adminId.' message: '.$response['message']);
+            return $response;
+        }
+    }
+
+    public function authUserShop()
+    {
+        $adminId  = $this->arguments['adminId'];
+        $token    = $this->headers['HTTP_AUTHORIZATION'][0];
+        $this->admin->setUserId($adminId);
+        $this->admin->setToken($token);
+        $shop     = new Shop();
+        $shop->setShopId($this->body['shopId']);
+        $shop->setIsAuth($this->body['isAuth']);
+        $response = $this->admindelegate->setAuthShop($this->admin,$shop);
+
+        if($response['response']==1){
+            return $response;
+        }
+        else{
+            $this->logger->info('Error in authorizing shop details by admin '.$adminId.' message: '.$response['message']);
             return $response;
         }
     }

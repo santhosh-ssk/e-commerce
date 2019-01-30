@@ -7,15 +7,13 @@ function registerShop(event){
 	var street = form.street.value;
 	var area = form.area.value;
 	var pincode = form.pincode.value;
-	var userId = sessionStorage.getItem('userId');
-
+    var token  = "Bearer "+sessionStorage.getItem('token');
 	//console.log(form,shopName,shopPhoneNO);
-	var url="http://localhost/ecommerce/Server/public/user/shop";
+	var url="http://localhost/ecommerce/Server/public/user/"+sessionStorage.getItem('userId')+"/shop";
 	$.ajax({
 
             url: url,
             data:JSON.stringify({
-            	"userId": userId,
             	"shopName": shopName,
             	"shopPhoneNO": shopPhoneNO,
             	"shopDescription": shopDescription,
@@ -25,7 +23,7 @@ function registerShop(event){
             	"pincode": pincode
             }),
             contentType: "application/json",
-            headers: { 'Access-Control-Allow-Origin': '*' },
+            headers: { 'Authorization': token },
             type: 'POST',
             crossDomain: true,
             dataType: 'json',
@@ -49,7 +47,7 @@ function registerShop(event){
 }
 
 function viewShops(){
-    var url = "http://localhost:5000/user/"+sessionStorage.getItem('userId')+"/shop";
+    // var url = "http://localhost:5000/user/"+sessionStorage.getItem('userId')+"/shop";
     var url = "http://localhost/ecommerce/Server/public/user/"+sessionStorage.getItem('userId')+"/shop";
 
     $.get(url, {}, function(json){
@@ -71,8 +69,8 @@ function deleteShop(object){
     var shopid = $(object).parent().parent().attr('id');
     shopid     = shopid.slice(4);
     var choice = window.confirm("Do you want to delete this shop");
-    var url    = "http://localhost:5001/user/"+sessionStorage.getItem('userId')+"/shop/"+shopid;
-    var token  = sessionStorage.getItem('token');
+    var url    = "http://localhost:5000/user/"+sessionStorage.getItem('userId')+"/shop/"+shopid;
+    var token  = "Bearer "+sessionStorage.getItem('token');
 
     if(choice){
         $.ajax({

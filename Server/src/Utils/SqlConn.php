@@ -20,7 +20,6 @@
 		}
 		
 		public function addTableData($table_name, $attributes, $values){
-			//echo var_dump($values);
 			for($i=0; $i<count($values); $i++){
 				if(is_string($values[$i])){
 					$values[$i]='\'' . mysqli_real_escape_string($this->conn,$values[$i]) . '\'';
@@ -32,7 +31,8 @@
 				//echo $query;
 				if ($this->conn->query($query) === TRUE) {
 					$last_id = $this->conn->insert_id;
-				    $resp    = array("response" => 1, "message" => "success", "last_id" => $last_id);
+					$resp    = array("response" => 1, "message" => "success", "last_id" => $last_id);
+					$resp['data']=array("affected rows"=>\mysqli_affected_rows($this->conn));
 				} else {
 					$resp = array("response" => 0, "message" => 'error in ' . $this->conn->error);
 				}
@@ -90,7 +90,7 @@
 
 		public function deleteRecord($object){
 			$query    = 'DELETE FROM ' . $object['tablename'] . ' ';
-			$response = array("response"=>1,"message"=>"success");
+			$response = array("response"=>1,"message"=>"success","data"=>null);
 
 			//add where condition to query
 			$where = $object['where'];
@@ -142,9 +142,72 @@
 			catch(\Exception $e){
 				$response['response'] = 0;
 				$response['message']  = $e->getMessage();	
+				return $response;
 			}
+			$response['data']=array("affected rows"=>\mysqli_affected_rows($this->conn));
 			return $response;
 			
+		}
+
+		public function update($object){
+			$query = 'UPDATE ' . $object['tablename'].' SET ';
+			$set =$object['SET'];
+			$response = array("response"=>0,"message"=>"Where condition is not present","data"=>null);
+
+			$setquery =[];
+			foreach ($set as $key => $value) {
+				if(is_string($value)){
+					$value = '\'' . mysqli_real_escape_string($this->conn,$value) . '\'';
+				}
+
+				array_push($setquery,' '.$key.' = '.$value.' ');
+			} 
+			$query = $query . \join(' , ',$setquery).' WHERE';
+
+			$where = $object['where'];
+			$wherequery = '';
+			
+			//len of key is always 1
+			$keys = array_keys($where);
+			if(count($keys)>=1){
+				$key = $keys[0];
+				$value = $where[$key];
+
+				//single where condition
+				if(!is_array($value)){
+						if(is_string($value)){
+							$value = '\'' . mysqli_real_escape_string($this->conn,$value) . '\'';
+						}
+						$wherequery = ' ' . $key.' = '.' '.$value.' '; 
+					}
+					else{
+						return $response;
+					}
+				}
+			else{
+				return $response;
+			}
+
+			$query = $query.' '.$wherequery . ';';
+			
+			//echo $query;
+			
+			try{
+				if($this->conn->query($query) === FALSE){
+					throw new \Exception($query);
+				}
+			}
+			catch(\Exception $e){
+				$response['response'] = 0;
+				$response['message']  = $e->getMessage();	
+				return $response;
+			}
+			$response['response'] = 1;
+			$response['message']  = "success";	
+			$response['data']=array("affected rows"=>\mysqli_affected_rows($this->conn));
+			return $response;
+			
+
 		}
 
 		public function __destruct(){

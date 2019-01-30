@@ -2,7 +2,7 @@
 use App\DAO\ShopDao;
 use App\Controller\UserController;
 
-	$app->post("/user/shop", function($request, $response, $arguments) { 	
+	$app->post("/user/{userId}/shop", function($request, $response, $arguments) { 	
 		$shopcontroller = new UserController($request,$arguments,$this->logger);
 		$resp = $shopcontroller->register();
 		return $response->withJson($resp);

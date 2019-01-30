@@ -132,7 +132,7 @@
 		 */ 
 		public function setIsAuth($isAuth)
 		{
-				$this->isAuth = $isAuth;
+				$this->isAuth = (int)$isAuth;
 
 				return $this;
 		}

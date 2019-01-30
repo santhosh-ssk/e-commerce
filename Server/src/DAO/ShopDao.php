@@ -13,19 +13,29 @@ class ShopDao extends Shop{
 	}
 
 
-	public function AddShop(){
-		$result = $this->addAddress();
-		if($result['response'] == 1){
-			$fields   = array(Shop::NAME, Shop::OWNER_ID, Shop::DESCRIPTION, Shop::PHONE, Shop::ADDRID);
-			$values   = array($this->getName(), $this->getOwnerId(), $this->getDescription(), $this->getPhone(), $this->getAddrId());
-			$response = $this->db_connect->addTableData(Shop::TABLENAME, $fields, $values);
-			if($response['response']==1){
-				$this->setShopId($result['last_id']);
-				return $response;
+	public function AddShop($authuser){
+		$user = new UserDao();
+		$user->setUserId($authuser->getUserId());
+		$user->setToken($authuser->getToken());
+		
+		if($user->verifyUserToken()){
+			$result = $this->addAddress();
+			if($result['response'] == 1){
+				$fields   = array(Shop::NAME, Shop::OWNER_ID, Shop::DESCRIPTION, Shop::PHONE, Shop::ADDRID);
+				$values   = array($this->getName(), $this->getOwnerId(), $this->getDescription(), $this->getPhone(), $this->getAddrId());
+				$response = $this->db_connect->addTableData(Shop::TABLENAME, $fields, $values);
+				if($response['response']==1){
+					$this->setShopId($result['last_id']);
+					return $response;
+				}
+			}
+			else{
+				return $result;
 			}
 		}
 		else{
-			return $result;
+			$response = array("response" => 1 , "message" => "UnAuthorized User", "data"=>null);
+			return $response;
 		}
 	}
 
@@ -58,41 +68,7 @@ class ShopDao extends Shop{
 		return $this->db_connect->query($object,0);
 	}
 
-	/**
-	 * This function is used to shops and user details for admin
-	 */
-	public function fetchUserShops($admin){
-		$adminUser = new UserDao();
-		$adminUser->setUserId($admin->getUserId());
-		$adminUser->setToken($admin->getToken());
-		$response = new Response(); 
-		if($adminUser->verifyUserToken()){
-
-			$object = array("tablename" => Shop::TABLENAME,
-							"fields"    => array(Shop::ADDRID, Shop::AREA, Shop::BLOCK, 
-												 Shop::IS_AUTH, Shop::NAME.' AS ShopName', Shop::PHONE, Shop::SHOPID, Shop::STATUS, 
-												 Shop::STREET,Shop::PINCODE,UserDao::NAME,UserDao::EMAIL),
-							"join"      => array( array("tablename"  => Shop::_TABLENAME_,
-												        "joinType"   => "JOIN",
-														 "on" =>array(Shop::ADDRID,Shop::_ADDRID_)
-													   ),
-												   array("tablename"  => UserDao::TABLENAME,
-												         "joinType"   => "JOIN",
-														 "on" =>array(Shop::OWNER_ID,UserDao::USER_ID)
-													     )
-												)
-						);
-
-			return $this->db_connect->query($object,0);
-
-		}
-		else{
-			$response->setResponse(0);
-			$response->setMessage('UnAuthorized Access');
-			return $response->getResponse();
-		}
-	}
-
+	
 	/***
 	 * this function is used to delete user shop
 	 */
@@ -124,5 +100,70 @@ class ShopDao extends Shop{
 			return $response->getResponse();
 		}
 	 }
+
+	 /**
+	 * This function is used to shops and user details for admin
+	 */
+	public function fetchUserShops($admin){
+		$adminUser = new UserDao();
+		$adminUser->setUserId($admin->getUserId());
+		$adminUser->setToken($admin->getToken());
+		$response = new Response(); 
+		if($adminUser->verifyUserToken()){
+
+			$object = array("tablename" => Shop::TABLENAME,
+							"fields"    => array(Shop::SHOPID, Shop::NAME.' AS ShopName', Shop::PHONE,  UserDao::NAME, UserDao::EMAIL, Shop::STATUS, Shop::IS_AUTH, 
+												 Shop::BLOCK, Shop::STREET,Shop::AREA,Shop::PINCODE),
+							"join"      => array( array("tablename"  => Shop::_TABLENAME_,
+												        "joinType"   => "JOIN",
+														 "on" =>array(Shop::ADDRID,Shop::_ADDRID_)
+													   ),
+												   array("tablename"  => UserDao::TABLENAME,
+												         "joinType"   => "JOIN",
+														 "on" =>array(Shop::OWNER_ID,UserDao::USER_ID)
+													     )
+												)
+						);
+
+			return $this->db_connect->query($object,0);
+
+		}
+		else{
+			$response->setResponse(0);
+			$response->setMessage('UnAuthorized Access');
+			return $response->getResponse();
+		}
+	}
+
+	/**
+	 * Admin uses this function is accept/reject a  shop added by user
+	 */
+	public function authShops($admin){
+		$adminUser = new UserDao();
+		$adminUser->setUserId($admin->getUserId());
+		$adminUser->setToken($admin->getToken());
+		$response = new Response(); 
+		if($adminUser->verifyUserToken()){
+
+			$object = array("tablename" => Shop::TABLENAME,
+							 "SET"      => array(
+										Shop::IS_AUTH => $this->getIsAuth(),
+										Shop::STATUS  => $this->getStatus()
+							 ),
+							 "where"    => array(
+								 Shop::SHOPID => $this->getShopId()
+							 )
+						);
+
+			return $this->db_connect->update($object);
+
+		}
+		else{
+			$response->setResponse(0);
+			$response->setMessage('UnAuthorized Access');
+			return $response->getResponse();
+		}
+	}
+
 }
 ?>

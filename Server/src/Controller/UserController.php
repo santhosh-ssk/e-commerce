@@ -26,9 +26,10 @@ class UserController{
     }
 
     public function register(){
-        
+        $userId = $this->arguments['userId'];
+        $token  = $this->headers['HTTP_AUTHORIZATION'][0];
+       
         $name        = $this->body['shopName'];
-        $owner_id    = $this->body['userId'];
         $phone_no    = $this->body['shopPhoneNO'];
         $description = $this->body['shopDescription'];
         $block       = $this->body['block'];
@@ -38,15 +39,19 @@ class UserController{
         
         $shopobj = new Shop();
         $shopobj->setName($name);
-        $shopobj->setOwnerId($owner_id);
+        $shopobj->setOwnerId($userId);
         $shopobj->setPhone($phone_no);
         $shopobj->setDescription($description);
         $shopobj->setBlock($block);
         $shopobj->setStreet($street);
         $shopobj->setArea($area);
         $shopobj->setPincode($pincode);
-        //echo var_dump($shopobj);
-        $result = $this->shop->registerShop($shopobj);
+
+        $user = new User();
+        $user->setToken($token);
+        $user->setUserId($userId);
+
+        $result = $this->shop->registerShop($user,$shopobj);
         
         $logMessage = '';
         if($result['response']==0){
@@ -74,7 +79,7 @@ class UserController{
         $userId = $this->arguments['userId'];
         $shopId = $this->arguments['shopId'];
         $token  = $this->headers['HTTP_AUTHORIZATION'][0];
-
+        
         $user = new User();
         $user->setUserId($userId);
         $user->setToken($token);

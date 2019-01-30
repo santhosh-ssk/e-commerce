@@ -9,12 +9,16 @@ $app = new Slim\App($settings);
 require __DIR__ . '/../src/dependencies.php';
 
 //Register middlewares
-require __DIR__.'../../src/middleware.php';
+require __DIR__.'/../src/middleware.php';
+
+
+//Register Swagger
+require __DIR__.'/../src/swagger.php';
 
 
 
 // Register routes
-require __DIR__ . '../../src/Routes/index.php';
+require __DIR__ . '/../src/Routes/index.php';
 
 
 

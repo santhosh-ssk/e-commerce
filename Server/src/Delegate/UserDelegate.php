@@ -12,8 +12,11 @@
             $this->response = new Response();
         }
 
-        public function registerShop($newShop){
-
+        public function registerShop($user,$newShop){
+            $token =$user->getToken();
+            $token = explode(" ",$token)[1];
+            $user->setToken($token);
+            
             $this->shop->setName($newShop->getName());
             $this->shop->setOwnerId($newShop->getOwnerId());
             $this->shop->setDescription($newShop->getDescription());
@@ -23,8 +26,7 @@
             $this->shop->setStreet($newShop->getStreet());
             $this->shop->setArea($newShop->getArea());
             $this->shop->setPincode($newShop->getPincode());
-
-            $response=$this->shop->AddShop();
+            $response=$this->shop->AddShop($user);
             return $response;
         }
 
@@ -38,11 +40,15 @@
         }
 
         public function deleteShop($user,$shopId){
+            $token = $user->getToken();
+            $token = explode(" ",$token)[1];
+            $user->setToken($token);
             $this->shop->setOwnerId($user->getUserId());
             $this->shop->setShopId($shopId);
             $response = $this->shop->deleteUserShop($user);
             $this->response->setResponse($response['response']);
             $this->response->setMessage($response['message']);
+            $this->response->setData($response['data']);
             return $this->response->getResponse();
 
         }
