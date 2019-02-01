@@ -21,8 +21,7 @@ class UserDao extends User{
 					);
 
 		$result=$this->db_connect->query($object,0);
-
-		if($result['response']==1 && password_verify($this->getPassword(), $result['data'][0]['password'])){
+		if($result['data'] && password_verify($this->getPassword(), $result['data'][0]['password'])){
 			return true;
 		}
 		else{
@@ -39,7 +38,7 @@ class UserDao extends User{
 		$result = $this->db_connect->query($object,0);
 		$token  = $result['data'][0]['token']; 
 		
-		if($result['response']==1 && $token == $this->getToken()){
+		if($result['data'] && $token == $this->getToken()){
 			return true;
 		}
 		else{

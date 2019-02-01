@@ -3,4 +3,5 @@
 	require __DIR__.'/Signup.php';
 	require __DIR__.'/User.php';
 	require __DIR__.'/Admin.php';
+	require __DIR__.'/Product.php';
 ?>

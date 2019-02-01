@@ -1,6 +1,6 @@
 
 function manageshops(){
-	var url = "http://localhost/ecommerce/Server/public/admin/" + sessionStorage.getItem('userId') + "/shops";
+	var url = "http://localhost/ecommerce/Server/public/admin/" + sessionStorage.getItem('userId') + "/shop";
     var token = 'Bearer ' + sessionStorage.getItem('token');
     $.ajax({
             url: url,

@@ -219,3 +219,45 @@
 [2019-01-30 22:47:30] slim-app.INFO: Error in authorizing shop details by admin 35 message: Where condition is not present [] {"uid":"87e4f6d"}
 [2019-01-30 22:47:57] slim-app.INFO: Error in authorizing shop details by admin 35 message: Where condition is not present [] {"uid":"b2dc2cc"}
 [2019-01-30 22:49:39] slim-app.INFO: Error in authorizing shop details by admin 35 message: Where condition is not present [] {"uid":"d4d0dea"}
+[2019-01-31 08:43:18] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"160a2a9"}
+[2019-01-31 10:02:32] slim-app.INFO: Failed to delete shop Id:1 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"b3a9962"}
+[2019-01-31 10:03:53] slim-app.INFO: Error in fetching shop details by admin 35 message: UnAuthorized Access [] {"uid":"13bf6d3"}
+[2019-01-31 11:25:40] slim-app.INFO: Error in registering product: T-shirt Error: Unauthorized user. [] {"uid":"20dea4f"}
+[2019-01-31 11:26:00] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"d15bedd"}
+[2019-01-31 11:26:29] slim-app.INFO: Error in registering product: T-shirt Error: error in Field 'prod_id' doesn't have a default value. [] {"uid":"450ce81"}
+[2019-01-31 11:53:35] slim-app.INFO: Unauthorized User Username: user@gmail.com as tried to access [] {"uid":"110e041"}
+[2019-01-31 11:54:00] slim-app.INFO: Unauthorized User Username: user@gmail.com as tried to access [] {"uid":"066ad57"}
+[2019-01-31 11:54:18] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"247746c"}
+[2019-01-31 11:55:39] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"c79ea84"}
+[2019-01-31 11:55:51] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"4a27b3d"}
+[2019-01-31 11:55:57] slim-app.INFO: Unauthorized User Username: usr@gmail.com as tried to access [] {"uid":"c67c078"}
+[2019-01-31 11:56:15] slim-app.INFO: Unauthorized User Username: usr@gmail.com as tried to access [] {"uid":"2f07771"}
+[2019-01-31 11:56:41] slim-app.INFO: Unauthorized User Username: usr@gmail.com as tried to access [] {"uid":"f7a7c38"}
+[2019-01-31 11:56:47] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"40ac104"}
+[2019-01-31 12:14:44] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"8c320e5"}
+[2019-01-31 14:06:38] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"35ec452"}
+[2019-02-01 15:53:45] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"52ee559"}
+[2019-02-01 15:53:46] slim-app.INFO:  [] {"uid":"ccd0915"}
+[2019-02-01 15:54:04] slim-app.INFO:  [] {"uid":"b5d8936"}
+[2019-02-01 15:54:06] slim-app.INFO:  [] {"uid":"78f0f5d"}
+[2019-02-01 15:54:09] slim-app.INFO:  [] {"uid":"b40cf56"}
+[2019-02-01 15:54:17] slim-app.INFO:  [] {"uid":"d573f6d"}
+[2019-02-01 15:54:18] slim-app.INFO:  [] {"uid":"bd295e2"}
+[2019-02-01 15:54:21] slim-app.INFO:  [] {"uid":"3b111b3"}
+[2019-02-01 15:54:22] slim-app.INFO:  [] {"uid":"8cac5a7"}
+[2019-02-01 15:54:23] slim-app.INFO:  [] {"uid":"54c49f6"}
+[2019-02-01 16:01:15] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"3fbaaa6"}
+[2019-02-01 16:01:15] slim-app.INFO:  [] {"uid":"d69c711"}
+[2019-02-01 16:02:04] slim-app.INFO:  [] {"uid":"c1be064"}
+[2019-02-01 16:02:16] slim-app.INFO:  [] {"uid":"1aa95d8"}
+[2019-02-01 16:02:58] slim-app.INFO:  [] {"uid":"803d574"}
+[2019-02-01 16:03:09] slim-app.INFO:  [] {"uid":"753fa14"}
+[2019-02-01 16:03:23] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"bccb229"}
+[2019-02-01 16:04:25] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"bc7142f"}
+[2019-02-01 16:22:37] slim-app.INFO:  [] {"uid":"c870cc4"}
+[2019-02-01 16:57:31] slim-app.INFO:  [] {"uid":"8163aeb"}
+[2019-02-01 16:57:39] slim-app.INFO:  [] {"uid":"57d8de4"}
+[2019-02-01 16:58:15] slim-app.INFO:  [] {"uid":"90e43f5"}
+[2019-02-01 16:58:28] slim-app.INFO:  [] {"uid":"3ec4cd8"}
+[2019-02-01 16:58:29] slim-app.INFO:  [] {"uid":"7471ffe"}
+[2019-02-01 16:58:37] slim-app.INFO:  [] {"uid":"bcc7190"}

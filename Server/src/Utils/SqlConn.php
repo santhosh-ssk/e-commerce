@@ -72,7 +72,7 @@
 			try{
 				$result = $this->conn->query($query);
 				if($result === FALSE){
-					throw new \Exception($query);
+					throw new \Exception($this->conn->error);
 				}
 			}
 			catch(Exception $e) {
