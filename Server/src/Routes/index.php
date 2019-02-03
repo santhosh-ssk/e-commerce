@@ -6,4 +6,5 @@
 	require __DIR__.'/Product.php';
 	require __DIR__.'/Brand.php';
 	require __DIR__.'/Category.php';
+	require __DIR__.'/Type.php';
 ?>

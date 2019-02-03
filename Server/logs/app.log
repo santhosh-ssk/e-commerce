@@ -293,3 +293,4 @@
 [2019-02-03 21:36:55] slim-app.INFO: Error in adding a  brand: Samsung2 Error: error in Unknown column 'id' in 'field list'. [] {"uid":"9196c1f"}
 [2019-02-03 21:41:18] slim-app.INFO: Error in adding a  brand: Samsung Error: error in Duplicate entry 'Samsung' for key 'name'. [] {"uid":"af4a329"}
 [2019-02-03 23:16:35] slim-app.INFO: Error in adding a  Category: Books Error: Unauthorized user. [] {"uid":"b90065b"}
+[2019-02-03 23:40:43] slim-app.INFO: Error in adding a  Category: android Error: Unauthorized user. [] {"uid":"e708f39"}
