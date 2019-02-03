@@ -5,11 +5,11 @@ class Tag{
     
     const TABLENAME = "TAG";
     const TAGID     = "TAG.tag_id";
-    const TAGNAME   = "TAG.name";
+    const NAME      = "TAG.name";
     
-    private $tagId,$tagName;
+    private $tagId,$name;
 
-
+    
 
     /**
      * Get the value of tagId
@@ -32,21 +32,21 @@ class Tag{
     }
 
     /**
-     * Get the value of tagName
+     * Get the value of name
      */ 
-    public function getTagName()
+    public function getName()
     {
-        return $this->tagName;
+        return $this->name;
     }
 
     /**
-     * Set the value of tagName
+     * Set the value of name
      *
      * @return  self
      */ 
-    public function setTagName($tagName)
+    public function setName($name)
     {
-        $this->tagName = $tagName;
+        $this->name = $name;
 
         return $this;
     }

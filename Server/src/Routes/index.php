@@ -7,4 +7,5 @@
 	require __DIR__.'/Brand.php';
 	require __DIR__.'/Category.php';
 	require __DIR__.'/Type.php';
+	require __DIR__.'/Tag.php';
 ?>

@@ -294,3 +294,9 @@
 [2019-02-03 21:41:18] slim-app.INFO: Error in adding a  brand: Samsung Error: error in Duplicate entry 'Samsung' for key 'name'. [] {"uid":"af4a329"}
 [2019-02-03 23:16:35] slim-app.INFO: Error in adding a  Category: Books Error: Unauthorized user. [] {"uid":"b90065b"}
 [2019-02-03 23:40:43] slim-app.INFO: Error in adding a  Category: android Error: Unauthorized user. [] {"uid":"e708f39"}
+[2019-02-04 00:06:48] slim-app.INFO: Error in adding a  Tag: android Error: Unauthorized user. [] {"uid":"e3484c6"}
+[2019-02-04 00:16:00] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"3505e79"}
+[2019-02-04 00:16:18] slim-app.WARNING: User Registration Failed:  username: user@gmail.com Message: error in Duplicate entry 'user@gmail.com' for key 'email' [] {"uid":"1a7d172"}
+[2019-02-04 00:16:56] slim-app.INFO:  [] {"uid":"8438cee"}
+[2019-02-04 00:17:09] slim-app.INFO:  [] {"uid":"b521154"}
+[2019-02-04 00:17:26] slim-app.INFO:  [] {"uid":"adaa845"}
