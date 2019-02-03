@@ -19,16 +19,50 @@
 
 		}
 		
-		public function addTableData($table_name, $attributes, $values){
+		public function addTableData($object){
+			
+			$table_name = $object['tablename'];
+			$attributes = $object['fields'];
+			$values     = $object['values'];
+			
 			for($i=0; $i<count($values); $i++){
 				if(is_string($values[$i])){
 					$values[$i]='\'' . mysqli_real_escape_string($this->conn,$values[$i]) . '\'';
 				}
 			}
 
-			$query='INSERT INTO ' . $table_name . '(' . join(',',$attributes) . ') VALUES(' . join(',',$values) . ');';
-				$resp = null;
-				//echo $query;
+			$query='INSERT INTO ' . $table_name . '(' . join(',',$attributes) . ') VALUES(' . join(',',$values) . ')';
+			
+			if(array_key_exists("duplicateFlag",$object)){
+				if($object['duplicateFlag']){
+					$updateQuery = ' ON DUPLICATE KEY UPDATE ';
+					$updateArray = [];
+					
+					if(array_key_exists("update",$object)){
+						$update = $object['update'];
+						foreach ($update as $key => $value) {
+							if(is_string($value)){
+								$value = '\'' . mysqli_real_escape_string($this->conn,$value) . '\'';
+							}		
+							array_push($updateArray,' '.$key.' = '.$value.' ');	
+						}
+
+						$updateQuery = $updateQuery . \join(' , ',$updateArray);
+						$query = $query . ' ' . $updateQuery;
+				
+					}
+
+					if(array_key_exists("getlastId",$object)){
+						$key=$object['getlastId'];
+						$updateQuery = $updateQuery . $key . ' = LAST_INSERT_ID('.$key.')';
+						
+						$query = $query . ' ' . $updateQuery; 
+					}
+				}
+			}
+			$query = $query . ';';
+			$resp = null;
+				echo $query;
 				if ($this->conn->query($query) === TRUE) {
 					$last_id = $this->conn->insert_id;
 					$resp    = array("response" => 1, "message" => "success", "last_id" => $last_id);
@@ -67,7 +101,7 @@
 			$query = $query . ' ;';
 			//echo $query;
 			$resp = array();
-			$response=array("response" =>1 , "message" => "sucess", "data" => array());
+			$response=array("response" =>1 , "message" => "success", "data" => array());
 
 			try{
 				$result = $this->conn->query($query);

@@ -4,8 +4,8 @@ namespace App\Models;
 class Brand{
     
     const TABLENAME = "BRAND";
-    const BRANDID = "brand_id";
-    const BRANDNAME = "name";
+    const BRANDID   = "BRAND.brand_id";
+    const BRANDNAME = "BRAND.name";
     
     private $brandId,$brandName;
 

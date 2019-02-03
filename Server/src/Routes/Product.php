@@ -1,8 +1,7 @@
 <?php
 
     use App\Controller\ProductController;
-    $app->post("/product", function($request, $response, $arguments) { 	
-        //var_dump($this->logger);
+    $app->post("/user/{userId}/shop/{shopId}/product", function($request, $response, $arguments) { 	
         $productcontroller = new ProductController($request,$arguments,$this->logger);
         $resp = $productcontroller->addProduct();
         return $response->withJson($resp);

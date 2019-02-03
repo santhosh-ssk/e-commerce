@@ -25,7 +25,7 @@
                 )
             );
            
-            $response = $this->db_connect->addTableData($object['tablename'],$object['fields'],$object['values']);
+            $response = $this->db_connect->addTableData($object);
             return $response;
         }
 

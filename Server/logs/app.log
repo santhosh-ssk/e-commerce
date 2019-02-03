@@ -261,3 +261,35 @@
 [2019-02-01 16:58:28] slim-app.INFO:  [] {"uid":"3ec4cd8"}
 [2019-02-01 16:58:29] slim-app.INFO:  [] {"uid":"7471ffe"}
 [2019-02-01 16:58:37] slim-app.INFO:  [] {"uid":"bcc7190"}
+[2019-02-02 13:11:44] slim-app.INFO:  [] {"uid":"8088ee6"}
+[2019-02-02 13:11:47] slim-app.INFO:  [] {"uid":"5f30277"}
+[2019-02-02 13:13:31] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"117b497"}
+[2019-02-02 13:29:25] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"d2e5bef"}
+[2019-02-02 13:40:13] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"e1d2f35"}
+[2019-02-03 19:09:57] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"9103b16"}
+[2019-02-03 19:10:49] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"e95b8a6"}
+[2019-02-03 19:11:25] slim-app.WARNING: User Registration Failed:  username: user@gmail.com Message: error in Duplicate entry 'user@gmail.com' for key 'email' [] {"uid":"e702287"}
+[2019-02-03 19:12:14] slim-app.WARNING: User Registration Failed:  username:  Message: error in You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ','$2y$10$/VgHQvow9qwhkdoOe2Tsb.OuWUUXJXQzMGQezC4KS2G5iV.OJPiwO')' at line 1 [] {"uid":"c397a18"}
+[2019-02-03 19:14:02] slim-app.WARNING: User Registration Failed:  username: user@gmail.com Message: error in Duplicate entry 'user@gmail.com' for key 'email' [] {"uid":"a7ab6cb"}
+[2019-02-03 19:14:58] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"af2c7c3"}
+[2019-02-03 19:17:20] slim-app.INFO: Error in authorizing shop details by admin 35 message: UnAuthorized Access [] {"uid":"545df12"}
+[2019-02-03 19:19:16] slim-app.INFO:  [] {"uid":"239457f"}
+[2019-02-03 19:19:55] slim-app.INFO:  [] {"uid":"0272e7f"}
+[2019-02-03 19:20:34] slim-app.INFO:  [] {"uid":"6a98348"}
+[2019-02-03 19:21:40] slim-app.INFO:  [] {"uid":"d7c6f53"}
+[2019-02-03 19:23:04] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"d6e0911"}
+[2019-02-03 19:23:17] slim-app.INFO: Failed to register shop: . [] {"uid":"9afad1f"}
+[2019-02-03 19:23:37] slim-app.INFO:  [] {"uid":"8fd0b14"}
+[2019-02-03 19:24:07] slim-app.INFO: Failed to delete shop Id:1 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"e55aa24"}
+[2019-02-03 19:24:10] slim-app.INFO: Failed to delete shop Id:1 by  User Id:  Error due to: UnAuthorized Access. [] {"uid":"455ca63"}
+[2019-02-03 19:24:49] slim-app.INFO:  [] {"uid":"43888d4"}
+[2019-02-03 20:44:29] slim-app.INFO: Error in adding a  brand: Samsung Error: Unauthorized user. [] {"uid":"1d9e59b"}
+[2019-02-03 20:44:48] slim-app.INFO: Error in adding a  brand: Samsung Error: error in Duplicate entry 'Samsung' for key 'name'. [] {"uid":"ee1734d"}
+[2019-02-03 20:46:05] slim-app.INFO: Error in adding a  brand: Samsung Error: Unauthorized user. [] {"uid":"f5b5c33"}
+[2019-02-03 20:46:16] slim-app.INFO: Error in adding a  brand: Samsung Error: error in Duplicate entry 'Samsung' for key 'name'. [] {"uid":"e244474"}
+[2019-02-03 21:14:45] slim-app.WARNING: User Registration Failed:  username: user@gmail.com Message: error in Duplicate entry 'user@gmail.com' for key 'email' [] {"uid":"fd34143"}
+[2019-02-03 21:14:50] slim-app.INFO:  [] {"uid":"d814706"}
+[2019-02-03 21:15:31] slim-app.INFO: Error in adding a  brand: Samsung Error: error in Duplicate entry 'Samsung' for key 'name'. [] {"uid":"ed92f65"}
+[2019-02-03 21:36:55] slim-app.INFO: Error in adding a  brand: Samsung2 Error: error in Unknown column 'id' in 'field list'. [] {"uid":"9196c1f"}
+[2019-02-03 21:41:18] slim-app.INFO: Error in adding a  brand: Samsung Error: error in Duplicate entry 'Samsung' for key 'name'. [] {"uid":"af4a329"}
+[2019-02-03 23:16:35] slim-app.INFO: Error in adding a  Category: Books Error: Unauthorized user. [] {"uid":"b90065b"}

@@ -4,4 +4,6 @@
 	require __DIR__.'/User.php';
 	require __DIR__.'/Admin.php';
 	require __DIR__.'/Product.php';
+	require __DIR__.'/Brand.php';
+	require __DIR__.'/Category.php';
 ?>

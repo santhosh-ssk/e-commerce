@@ -23,7 +23,14 @@ class ShopDao extends Shop{
 			if($result['response'] == 1){
 				$fields   = array(Shop::NAME, Shop::OWNER_ID, Shop::DESCRIPTION, Shop::PHONE, Shop::ADDRID);
 				$values   = array($this->getName(), $this->getOwnerId(), $this->getDescription(), $this->getPhone(), $this->getAddrId());
-				$response = $this->db_connect->addTableData(Shop::TABLENAME, $fields, $values);
+				
+				$object = array(
+					"tablename" => Shop::TABLENAME,
+					"fields"    => $fields,
+					"values"    => $values
+				);
+				
+				$response = $this->db_connect->addTableData($object);
 				if($response['response']==1){
 					$this->setShopId($result['last_id']);
 					return $response;
@@ -46,7 +53,12 @@ class ShopDao extends Shop{
 		$values=array(
 			$this->getBlock(), $this->getStreet(), $this->getArea(), $this->getPincode()
 		);
-		$result = $this->db_connect->addTableData(Shop::_TABLENAME_, $fields, $values);
+		$object = array(
+			"tablename" => Shop::_TABLENAME_,
+			"fields"    => $fields,
+			"values"    => $values
+		);
+		$result = $this->db_connect->addTableData($object);
 		
 		if($result['response'] == 1){
 			$this->setAddrId($result['last_id']);

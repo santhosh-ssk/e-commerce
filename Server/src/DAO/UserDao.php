@@ -89,7 +89,12 @@ class UserDao extends User{
 	public function addUser(){
 		$fields=array(User::NAME,User::EMAIL,User::PASSWORD);
 		$values=array($this->getName(),$this->getEmail(),$this->getPassword());
-		$resp=$this->db_connect->addTableData(User::TABLENAME,$fields,$values);
+		$object = array(
+			"tablename" => User::TABLENAME,
+			"fields"    => $fields,
+			"values"    => $values
+		);
+		$resp=$this->db_connect->addTableData($object);
 		if($resp['response'] == 1){
 			
 			$this->setUserId($resp['last_id']);
@@ -117,7 +122,12 @@ class UserDao extends User{
 		$fields=array(User::_USERID_,User::TOKEN);
 		$values=array($this->getUserId(),$this->getToken());
 		//echo 'USER '.$this->getToken();
-		return $this->db_connect->addTableData(User::_TABLENAME_,$fields,$values);
+		$object = array(
+			"tablename" => User::_TABLENAME_,
+			"fields"    => $fields,
+			"values"    => $values
+		);
+		return $this->db_connect->addTableData($object);
 	}
 
 }

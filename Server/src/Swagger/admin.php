@@ -59,10 +59,14 @@ use OpenApi\Annotations as OA;
  *                     type  =  "integer"
  *                 ),
  *                 @OA\Property(
+ *                     property  =  "ownerId",
+ *                     type  =  "integer"
+ *                 ),
+ *                 @OA\Property(
  *                     property  =  "isAuth",
  *                     type  =  "integer"
  *                 ),
- *                 example = {"shopId":1,"isAuth":1}
+ *                 example = {"shopId":1, "ownerId" : 36,"isAuth":1}
  *             )
  *         )
  *     ),

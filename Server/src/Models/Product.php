@@ -3,16 +3,22 @@ namespace App\Models;
 
 class Product{
 
-    const TABLENAME   = "PRODUCT";
-    const PRODID      = "PRODUCT.prod_id";
-    const NAME        = "PRODUCT.name";
-    const DESCRIPTION = "PRODUCT.description";
-    const COLOR       = "PRODUCT.color";
-    const SIZE        = "PRODUCT.size";
-    const NETWEIGHT   = "PRODUCT.netweight";
-    const MRPPRICE    = "PRODUCT.mrpprice";
+    const TABLENAME      = "PRODUCT";
+    const PRODID         = "PRODUCT.prod_id";
+    const SHOPID         = "PRODUCT.shop_id";
+    const NAME           = "PRODUCT.name";
+    const DESCRIPTION    = "PRODUCT.description";
+    const COLOR          = "PRODUCT.color";
+    const SIZE           = "PRODUCT.size";
+    const NETWEIGHT      = "PRODUCT.netweight";
+    const MRPPRICE       = "PRODUCT.mrpprice";
+    const BRANDID        = "PRODUCT.brand_id";
+    const STOCK          = "PRODUCT.stock";
+    const RETAILPRICE    = "PRODUCT.retail_price";
+    const IMAGES         = "PRODUCT.images";
     
-    private $prodId, $name, $description, $color, $size, $netWeight, $mrpPrice;
+    private $prodId,$shopId,$name, $description, $color, $size, $netWeight, $mrpPrice;
+    private $brand_id,$stock,$retailPrice,$images;
 
     /**
      * Get the value of prodId
@@ -30,6 +36,26 @@ class Product{
     public function setProdId($prodId)
     {
         $this->prodId = (int)$prodId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of shopId
+     */ 
+    public function getShopId()
+    {
+        return $this->shopId;
+    }
+
+    /**
+     * Set the value of shopId
+     *
+     * @return  self
+     */ 
+    public function setShopId($shopId)
+    {
+        $this->shopId = $shopId;
 
         return $this;
     }
@@ -150,6 +176,88 @@ class Product{
     public function setMrpPrice($mrpPrice)
     {
         $this->mrpPrice = $mrpPrice;
+
+        return $this;
+    }
+
+    
+
+    /**
+     * Get the value of brand_id
+     */ 
+    public function getBrand_id()
+    {
+        return $this->brand_id;
+    }
+
+    /**
+     * Set the value of brand_id
+     *
+     * @return  self
+     */ 
+    public function setBrand_id($brand_id)
+    {
+        $this->brand_id = $brand_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of stock
+     */ 
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    /**
+     * Set the value of stock
+     *
+     * @return  self
+     */ 
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of retailPrice
+     */ 
+    public function getRetailPrice()
+    {
+        return $this->retailPrice;
+    }
+
+    /**
+     * Set the value of retailPrice
+     *
+     * @return  self
+     */ 
+    public function setRetailPrice($retailPrice)
+    {
+        $this->retailPrice = $retailPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of images
+     */ 
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Set the value of images
+     *
+     * @return  self
+     */ 
+    public function setImages($images)
+    {
+        $this->images = $images;
 
         return $this;
     }

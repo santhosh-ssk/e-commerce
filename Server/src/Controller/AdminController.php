@@ -51,11 +51,12 @@ class AdminController{
         $this->admin->setToken($token);
         $shop     = new Shop();
         $shop->setShopId($this->body['shopId']);
+        $shop->setOwnerId($this->body['ownerId']);
         $shop->setIsAuth($this->body['isAuth']);
         $response = $this->admindelegate->setAuthShop($this->admin,$shop);
 
         if($response['response']==1){
-            return $response;
+            return $response;   
         }
         else{
             $this->logger->info('Error in authorizing shop details by admin '.$adminId.' message: '.$response['message']);

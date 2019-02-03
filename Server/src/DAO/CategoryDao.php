@@ -1,9 +1,9 @@
 <?php
     namespace App\DAO;
     use App\Utils\SqlConn;
-    use App\Models\Brand;
+    use App\Models\Category;
 
-    class BrandDao extends Brand 
+    class CategoryDao extends Category 
     {
         public $db_connect;
 	
@@ -11,16 +11,16 @@
             $this->db_connect = new SqlConn();		
         }
 
-        public function addBrand()
+        public function addCategory()
         {
             $object = array(
-                "tablename" => Brand::TABLENAME,
-                "fields"    => array(Brand::BRANDNAME
+                "tablename" => Category::TABLENAME,
+                "fields"    => array(Category::NAME
                                 ),
-                "values"    => array( $this->getBrandName()
+                "values"    => array( $this->getName()
                                 ),
                 "duplicateFlag" => 1,
-                "getlastId" => Brand::BRANDID
+                "getlastId" => Category::CATEGORYID
 
             );
            
@@ -28,23 +28,23 @@
             return $response;
         }
 
-        public function getAllBrandNames()
+        public function getAllCategoryNames()
         {
             $object = array(
-                "tablename" => Brand::TABLENAME,
-                "fields"    => array(Brand::BRANDNAME
+                "tablename" => Category::TABLENAME,
+                "fields"    => array(Category::NAME
                                 )
             );
             $response = $this->db_connect->query($object,0);
             return $response;
         }
 
-        public function removeBrand(){
+        public function removeCategory(){
             $object = array(
-                "tablename" => Brand::TABLENAME,
+                "tablename" => Category::TABLENAME,
                 "where"     => array(
                   "simple"  => array(
-                      Brand::BRANDNAME => $this->getBrandName()
+                    Category::NAME => $this->getName()
                   )
                 ),
                 
