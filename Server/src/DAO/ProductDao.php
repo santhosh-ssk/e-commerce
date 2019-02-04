@@ -16,12 +16,15 @@
             $object = array(
                 "tablename" => Product::TABLENAME,
                 "fields"    => array(
-                            Product::NAME, Product::DESCRIPTION, Product::COLOR, Product::SIZE,
-                            Product::NETWEIGHT, Product::MRPPRICE,
+                            Product::CATEGORYID,Product::NAME, Product::DESCRIPTION, Product::COLOR, Product::SIZE,
+                            Product::NETWEIGHT, Product::MRPPRICE,Product::BRANDID,Product::STOCK,
+                            Product::RETAILPRICE,Product::IMAGES
                 ),
                 "values"    => array(
-                            $this->getName(), $this->getDescription(), $this->getColor(),
+                            $this->getCategoryId(),$this->getName(), $this->getDescription(), $this->getColor(),
                             $this->getSize(), $this->getNetWeight(),   $this->getMrpPrice(),
+                            $this->getBrandId(),$this->getStock(),$this->getRetailPrice(),
+                            $this->getImages()
                 )
             );
            

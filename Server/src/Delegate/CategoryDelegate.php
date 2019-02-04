@@ -58,6 +58,26 @@ class CategoryDelegate{
     }
 
     /**
+     *  Both Admin and Retailer a  Category by Name
+     */
+    public function getCategoryByName($user,$name){
+        $authuser = new UserDao();
+        $authuser->setUserId($user->getUserId());
+        $token    = explode(" ",$user->getToken())[1];
+        $authuser->setToken($token);
+        if($authuser->verifyUserToken()){
+            $this->category->setName($name);
+            return $this->category->getCategoryByName();
+        }
+        else{
+            $this->response->setResponse(0);
+            $this->response->setMessage("Unauthorized user");
+        }
+
+        return $this->response->getResponse();
+    }
+
+    /**
      *  Both Admin and Retailer can delete a Category by name
      */
      public function removeCategory($user,$categoryName){

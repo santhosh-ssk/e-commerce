@@ -39,6 +39,19 @@
             return $response;
         }
 
+        public function getCategoryByName()
+        {
+            $object = array(
+                "tablename" => Category::TABLENAME,
+                "fields"    => array("*"),
+                "where"     => array(
+                                    Category::NAME => $this->getName()
+                                )
+            );
+            $response = $this->db_connect->query($object,0);
+            return $response;
+        }
+
         public function removeCategory(){
             $object = array(
                 "tablename" => Category::TABLENAME,

@@ -5,7 +5,7 @@ class Product{
 
     const TABLENAME      = "PRODUCT";
     const PRODID         = "PRODUCT.prod_id";
-    const SHOPID         = "PRODUCT.shop_id";
+    const CATEGORYID     = "PRODUCT.category_id";
     const NAME           = "PRODUCT.name";
     const DESCRIPTION    = "PRODUCT.description";
     const COLOR          = "PRODUCT.color";
@@ -17,8 +17,8 @@ class Product{
     const RETAILPRICE    = "PRODUCT.retail_price";
     const IMAGES         = "PRODUCT.images";
     
-    private $prodId,$shopId,$name, $description, $color, $size, $netWeight, $mrpPrice;
-    private $brand_id,$stock,$retailPrice,$images;
+    private $prodId,$categoryId,$name, $description, $color, $size, $netWeight, $mrpPrice;
+    private $brandId,$stock,$retailPrice,$images;
 
     /**
      * Get the value of prodId
@@ -41,21 +41,21 @@ class Product{
     }
 
     /**
-     * Get the value of shopId
+     * Get the value of categoryId
      */ 
-    public function getShopId()
+    public function getCategoryId()
     {
-        return $this->shopId;
+        return $this->categoryId;
     }
 
     /**
-     * Set the value of shopId
+     * Set the value of categoryId
      *
      * @return  self
      */ 
-    public function setShopId($shopId)
+    public function setCategoryId($categoryId)
     {
-        $this->shopId = $shopId;
+        $this->categoryId = (int)$categoryId;
 
         return $this;
     }
@@ -175,29 +175,28 @@ class Product{
      */ 
     public function setMrpPrice($mrpPrice)
     {
-        $this->mrpPrice = $mrpPrice;
+        $this->mrpPrice = (float)$mrpPrice;
 
         return $this;
     }
 
     
-
     /**
-     * Get the value of brand_id
+     * Get the value of brandId
      */ 
-    public function getBrand_id()
+    public function getBrandId()
     {
-        return $this->brand_id;
+        return $this->brandId;
     }
 
     /**
-     * Set the value of brand_id
+     * Set the value of brandId
      *
      * @return  self
      */ 
-    public function setBrand_id($brand_id)
+    public function setBrandId($brandId)
     {
-        $this->brand_id = $brand_id;
+        $this->brandId = (int)$brandId;
 
         return $this;
     }
@@ -217,7 +216,7 @@ class Product{
      */ 
     public function setStock($stock)
     {
-        $this->stock = $stock;
+        $this->stock = (int)$stock;
 
         return $this;
     }
@@ -237,7 +236,7 @@ class Product{
      */ 
     public function setRetailPrice($retailPrice)
     {
-        $this->retailPrice = $retailPrice;
+        $this->retailPrice = (float)$retailPrice;
 
         return $this;
     }
@@ -261,6 +260,9 @@ class Product{
 
         return $this;
     }
+
+    
+
 }
 
 ?>

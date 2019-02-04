@@ -300,3 +300,14 @@
 [2019-02-04 00:16:56] slim-app.INFO:  [] {"uid":"8438cee"}
 [2019-02-04 00:17:09] slim-app.INFO:  [] {"uid":"b521154"}
 [2019-02-04 00:17:26] slim-app.INFO:  [] {"uid":"adaa845"}
+[2019-02-04 00:25:28] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"761ac96"}
+[2019-02-04 00:25:28] slim-app.WARNING: User Registration Failed:  username: user@gmail.com Message: error in Duplicate entry 'user@gmail.com' for key 'email' [] {"uid":"0b24905"}
+[2019-02-04 00:25:28] slim-app.INFO:  [] {"uid":"0b79dd8"}
+[2019-02-04 00:25:28] slim-app.INFO:  [] {"uid":"699ceaf"}
+[2019-02-04 00:25:28] slim-app.INFO:  [] {"uid":"5738e0c"}
+[2019-02-04 11:14:54] slim-app.INFO:  [] {"uid":"813bb17"}
+[2019-02-04 11:24:18] slim-app.INFO: Error in adding a  Category: BreakFast Error: Unauthorized user. [] {"uid":"6834528"}
+[2019-02-04 11:29:31] slim-app.INFO: Error in adding a  Category: BreakFast Error: error in You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1. [] {"uid":"12a3d71"}
+[2019-02-04 11:29:47] slim-app.INFO: Error in adding a  Category: BreakFast Error: error in You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1. [] {"uid":"984ee4e"}
+[2019-02-04 11:31:17] slim-app.INFO: Error in adding a  Category: BreakFast Error: error in You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1. [] {"uid":"696146c"}
+[2019-02-04 14:00:54] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"f7505ab"}

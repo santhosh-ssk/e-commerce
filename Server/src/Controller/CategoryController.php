@@ -58,6 +58,18 @@ class CategoryController{
         return $response;
     }
 
+    public function getCategoryByName(){
+
+        $userID = $this->arguments['userId'];
+        $token  = $this->headers['HTTP_AUTHORIZATION'][0];
+        $user   = new User();
+        $user->setUserId($userID);
+        $user->setToken($token);
+        $name = $this->arguments['name'];
+        $response = $this->category->getCategoryByName($user,$name);
+        return $response;
+    }
+
     public function removeCategory(){
 
         $userID    = $this->arguments['userId'];

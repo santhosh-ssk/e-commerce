@@ -75,8 +75,16 @@
 
 		public function query($object, $flag){
 			$__tablename__ = $object['tablename'];
+			$query  = 'SELECT ';
+			
+			if(array_key_exists("distinct",$object)){
+				if($object['distinct']){
+					$query = $query . ' DISTINCT ';
+				}
+			}
+
 			$fields = $object['fields'];
-			$query  = 'SELECT ' . join(',',$fields) . ' FROM ' . $__tablename__ . ' ';
+			$query  = $query . join(',',$fields) . ' FROM ' . $__tablename__ . ' ';
 			
 			if(array_key_exists("join", $object)){
 				$joinquery='';

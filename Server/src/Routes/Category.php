@@ -9,6 +9,12 @@
         return $response->withJson($resp);
     });
 
+    $app->get("/user/{userId}/category/{name}", function($request, $response, $arguments) { 	
+        $categoryController = new CategoryController($request,$arguments,$this->logger);
+        $resp = $categoryController->getCategoryByName();
+        return $response->withJson($resp);
+    });
+
     $app->post("/user/{userId}/category", function($request, $response, $arguments) { 	
         $categoryController = new CategoryController($request,$arguments,$this->logger);
         $resp = $categoryController->addCategory();
