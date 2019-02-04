@@ -24,23 +24,29 @@ class ProductController{
 
     public function addProduct(){
         
-        $userID = $this->body['userId'];
+        $userID     = $this->arguments['userId'];
+        $categoryId = $this->arguments['categoryId'];
+        $brandName  = $this->body['brandName'];
+
         $token  = $this->headers['HTTP_AUTHORIZATION'][0];
-        
         $user   = new User();
         $user->setUserId($userID);
         $user->setToken($token);
 
         $product = new Product();
+
+        $product->setCategoryId($categoryId);
         $product->setName($this->body['name']);
         $product->setDescription($this->body['description']);
         $product->setColor($this->body['color']);
         $product->setSize($this->body['size']);
-        $product->setNetWeight($this->body['netweight']);
-        $product->setMrpPrice($this->body['mrpprice']);
+        $product->setNetWeight($this->body['netWeight']);
+        $product->setMrpPrice($this->body['mrpPrice']);
+        $product->setRetailPrice($this->body['retailPrice']);
+        $product->setStock($this->body['stock']);
+        $product->setImages($this->body['images']);
 
-        $response = $this->product->registerProduct($user,$product);
-        
+        $response = $this->product->registerProduct($user,$brandName,$product);
         if($response['response']==0){
             $logMessage='Error in registering product: '.$product->getName().' Error: ' . $response['message'] . '.';
             
@@ -50,15 +56,15 @@ class ProductController{
         return $response;
     }
 
-    public function getProducts(){
+    public function getProductsInCategory(){
+        $categoryID = $this->arguments['categoryId'];
+        $response = $this->product->getProductsInCategory($categoryID);
+        return $response;
+    }
 
-        $userID = $this->arguments['userId'];
-        $token  = $this->headers['HTTP_AUTHORIZATION'][0];
-        $user   = new User();
-        $user->setUserId($userID);
-        $user->setToken($token);
-
-        $response = $this->product->getAllProducts($user);
+    public function getShopProducts(){
+        $shopID = $this->arguments['shopId'];
+        $response = $this->product->getShopProducts($shopID);
         return $response;
     }
 

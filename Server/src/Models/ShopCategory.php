@@ -4,7 +4,7 @@ namespace App\Models;
 class ShopCategory{
     
     const TABLENAME      = "SHOP_CATEGORY";
-    const SHOPCATEGORYID = "SHOP_CATEGORY._id"; 
+    const SHOPCATEGORYID = "SHOP_CATEGORY.shop_category_id"; 
     const SHOPID         = "SHOP_CATEGORY.shop_id";
     const CATEGORYID     = "SHOP_CATEGORY.category_id";
     

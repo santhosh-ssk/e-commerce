@@ -33,7 +33,7 @@ class ProductDelegate{
             $brandObj->setBrandName($brandName);
 
             $response = $brandObj->addBrand();
-            if($response['response']==1){
+            if($response['response'] == 1){
            
                 $this->product->setCategoryId($newProduct->getCategoryId());
                 $this->product->setName($newProduct->getName());
@@ -45,12 +45,14 @@ class ProductDelegate{
                 $this->product->setBrandId($response['last_id']);
                 $this->product->setStock($newProduct->getStock());
                 $this->product->setRetailPrice($newProduct->getRetailPrice());
-                $this->product->setImages($newProduct->setImages());
+                $this->product->setImages($newProduct->getImages());
                 
                 $response = $this->product->addProduct();
-                unset($response['last_id']);
+                
+                if($response['response'] == 1){
+                        unset($response['last_id']);
+                    }
                 return $response;
-      
             }
             else{
                 return $response;
@@ -64,20 +66,13 @@ class ProductDelegate{
         return $this->response->getResponse();
     }
     
-    public function getAllProducts($user){
-        $authuser = new UserDao();
-        $authuser->setUserId($user->getUserId());
-        $token    = explode(" ",$user->getToken())[1];
-        $authuser->setToken($token);
-        if($authuser->verifyUserToken()){
-            return $this->product->getAllProducts();
-        }
-        else{
-            $this->response->setResponse(0);
-            $this->response->setMessage("Unauthorized user");
-        }
+    public function getProductsInCategory($categoryId){
+        $this->product->setCategoryId($categoryId);
+        return $this->product->getProductsInCategory();
+    }
 
-        return $this->response->getResponse();
+    public function getShopProducts($shopId){
+        return $this->product->getShopProducts($shopId);
     }
 }
 ?>

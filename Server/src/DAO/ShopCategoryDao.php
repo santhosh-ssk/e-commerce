@@ -30,7 +30,7 @@
         {
             $object = array(
                 "tablename" => ShopCategory::TABLENAME,
-                "fields"    => array(Category::NAME
+                "fields"    => array(Category::NAME,ShopCategory::SHOPCATEGORYID
                                 ),
                 "join"      => array(
                                 array("tablename"  => Category::TABLENAME,
