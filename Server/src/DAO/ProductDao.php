@@ -3,6 +3,7 @@
     use App\Utils\SqlConn;
     use App\Models\Product;
     use App\Models\Brand;
+    use App\Models\Shop;
     use App\Models\ShopCategory;
 
     class ProductDao extends Product 
@@ -18,12 +19,12 @@
             $object = array(
                 "tablename" => Product::TABLENAME,
                 "fields"    => array(
-                            Product::CATEGORYID,Product::NAME, Product::DESCRIPTION, Product::COLOR, Product::SIZE,
+                            Product::CATEGORYID,Product::NAME, Product::DESCRIPTION, Product::SIZE,
                             Product::NETWEIGHT, Product::MRPPRICE,Product::BRANDID,Product::STOCK,
                             Product::RETAILPRICE,Product::IMAGES
                 ),
                 "values"    => array(
-                            $this->getCategoryId(),$this->getName(), $this->getDescription(), $this->getColor(),
+                            $this->getCategoryId(),$this->getName(), $this->getDescription(),
                             $this->getSize(), $this->getNetWeight(),   $this->getMrpPrice(),
                             $this->getBrandId(),$this->getStock(),$this->getRetailPrice(),
                             $this->getImages()
@@ -38,8 +39,9 @@
             $object = array(
                 "tablename" => Product::TABLENAME,
                 "fields"    => array(
-                            Product::PRODID,Product::NAME, Product::DESCRIPTION, Product::COLOR,
+                            Product::PRODID,Product::NAME, Product::DESCRIPTION,
                             Product::SIZE, Product::NETWEIGHT, Product::MRPPRICE,
+                            Product::ISACTIVE,Product::VIEWS,Product::RATING,Product::RATINGCOUNT
                 )
             );
             $response = $this->db_connect->query($object,0);
@@ -50,9 +52,10 @@
             $object = array(
                 "tablename" => Product::TABLENAME,
                 "fields"    => array(
-                            Product::PRODID,Product::NAME, Product::DESCRIPTION, Product::COLOR,
+                            Product::PRODID,Product::NAME, Product::DESCRIPTION,
                             Product::SIZE, Product::NETWEIGHT, Product::MRPPRICE,Product::RETAILPRICE,
-                            Brand::BRANDNAME . " AS BrandName",Product::STOCK,Product::IMAGES
+                            Brand::BRANDNAME . " AS BrandName",Product::STOCK,Product::IMAGES,
+                            Product::ISACTIVE,Product::VIEWS,Product::RATING,Product::RATINGCOUNT
                 ),
                 "join"      => array(
                                 array("tablename"  => Brand::TABLENAME,
@@ -73,9 +76,10 @@
             $object = array(
                 "tablename" => Product::TABLENAME,
                 "fields"    => array(
-                            Product::PRODID,Product::NAME, Product::DESCRIPTION, Product::COLOR,
+                            Product::PRODID,Product::NAME, Product::DESCRIPTION, 
                             Product::SIZE, Product::NETWEIGHT, Product::MRPPRICE,Product::RETAILPRICE,
-                            Brand::BRANDNAME . " AS BrandName",Product::STOCK,Product::IMAGES
+                            Brand::BRANDNAME . " AS BrandName",Product::STOCK,Product::IMAGES,
+                            Product::ISACTIVE,Product::VIEWS,Product::RATING,Product::RATINGCOUNT
                 ),
                 "join"      => array(
                                 array("tablename"  => Brand::TABLENAME,
@@ -93,6 +97,45 @@
                 
             );
             $response = $this->db_connect->query($object,0);
+            return $response;
+        }
+
+        public function getProductShopId(){
+            $object = array(
+                "tablename" => Product::TABLENAME,
+                "fields"    => array(
+                            Shop::OWNER_ID
+                ),
+                "join"      => array(
+                                array("tablename"  => ShopCategory::TABLENAME,
+                                "joinType"   => "JOIN",
+                                "on" =>array(Product::CATEGORYID,ShopCategory::SHOPCATEGORYID)
+                                ),
+                                array("tablename"  => Shop::TABLENAME,
+                                "joinType"   => "JOIN",
+                                "on" =>array(Shop::SHOPID,ShopCategory::SHOPID)
+                                ),
+                            ),
+                "where"    => array(
+                                Product::PRODID => $this->getProdId()
+                ),
+                
+            );
+            $response = $this->db_connect->query($object,0);
+            return $response;
+        }
+
+        public function removeProduct(){
+            $object = array(
+                "tablename" => Product::TABLENAME,
+                "where"    => array(
+                        "simple" =>array(
+                             Product::PRODID => $this->getProdId()
+                             )
+                ),
+                
+            );
+            $response = $this->db_connect->deleteRecord($object);
             return $response;
         }
     }

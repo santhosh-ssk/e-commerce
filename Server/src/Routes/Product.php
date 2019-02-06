@@ -21,6 +21,12 @@
         return $response->withJson($resp);
     });
 
+    $app->delete("/user/{userId}/shop/{shopId}/product/{prodId}", function($request, $response, $arguments) { 	
+        $productcontroller = new ProductController($request,$arguments,$this->logger);
+        $resp = $productcontroller->removeProduct();
+        return $response->withJson($resp);
+    });
+
 
 
 ?>

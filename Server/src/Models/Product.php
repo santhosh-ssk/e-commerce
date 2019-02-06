@@ -8,7 +8,6 @@ class Product{
     const CATEGORYID     = "PRODUCT.category_id";
     const NAME           = "PRODUCT.name";
     const DESCRIPTION    = "PRODUCT.description";
-    const COLOR          = "PRODUCT.color";
     const SIZE           = "PRODUCT.size";
     const NETWEIGHT      = "PRODUCT.netweight";
     const MRPPRICE       = "PRODUCT.mrpprice";
@@ -16,9 +15,14 @@ class Product{
     const STOCK          = "PRODUCT.stock";
     const RETAILPRICE    = "PRODUCT.retail_price";
     const IMAGES         = "PRODUCT.images";
+    const ISACTIVE       = "PRODUCT.is_active";
+    const VIEWS          = "PRODUCT.views";
+    const RATING         = "PRODUCT.rating";
+    const RATINGCOUNT    = "PRODUCT.rating_count";
+
     
-    private $prodId,$categoryId,$name, $description, $color, $size, $netWeight, $mrpPrice;
-    private $brandId,$stock,$retailPrice,$images;
+    private $prodId,$categoryId,$name, $description, $size, $netWeight, $mrpPrice;
+    private $brandId,$stock,$retailPrice,$images,$isActive,$views,$rating,$ratingCount;
 
     /**
      * Get the value of prodId
@@ -96,26 +100,6 @@ class Product{
     public function setDescription($description)
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of color
-     */ 
-    public function getColor()
-    {
-        return $this->color;
-    }
-
-    /**
-     * Set the value of color
-     *
-     * @return  self
-     */ 
-    public function setColor($color)
-    {
-        $this->color = $color;
 
         return $this;
     }
@@ -263,6 +247,86 @@ class Product{
 
     
 
+
+    /**
+     * Get the value of isActive
+     */ 
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * Set the value of isActive
+     *
+     * @return  self
+     */ 
+    public function setIsActive($isActive)
+    {
+        $this->isActive = (int)$isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of views
+     */ 
+    public function getViews()
+    {
+        return $this->views;
+    }
+
+    /**
+     * Set the value of views
+     *
+     * @return  self
+     */ 
+    public function setViews($views)
+    {
+        $this->views = (int)$views;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of rating
+     */ 
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * Set the value of rating
+     *
+     * @return  self
+     */ 
+    public function setRating($rating)
+    {
+        $this->rating = (float)$rating;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ratingCount
+     */ 
+    public function getRatingCount()
+    {
+        return $this->ratingCount;
+    }
+
+    /**
+     * Set the value of ratingCount
+     *
+     * @return  self
+     */ 
+    public function setRatingCount($ratingCount)
+    {
+        $this->ratingCount = (int)$ratingCount;
+
+        return $this;
+    }
 }
 
 ?>

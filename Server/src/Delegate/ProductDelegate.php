@@ -38,7 +38,6 @@ class ProductDelegate{
                 $this->product->setCategoryId($newProduct->getCategoryId());
                 $this->product->setName($newProduct->getName());
                 $this->product->setDescription($newProduct->getDescription());
-                $this->product->setColor($newProduct->getColor());
                 $this->product->setSize($newProduct->getSize());
                 $this->product->setNetWeight($newProduct->getNetWeight());
                 $this->product->setMrpPrice($newProduct->getMrpPrice());
@@ -73,6 +72,45 @@ class ProductDelegate{
 
     public function getShopProducts($shopId){
         return $this->product->getShopProducts($shopId);
+    }
+
+    public function removeProduct($user,$shopID,$product){
+        $authuser = new UserDao();
+        $authuser->setUserId($user->getUserId());
+        $token    = explode(" ",$user->getToken())[1];
+        $authuser->setToken($token);
+
+        if($authuser->verifyUserToken()){
+            $this->product->setProdId($product->getProdId());
+            $response = $this->product->getProductShopId();
+            
+            if($response['response']==1){
+                if(\count($response['data'])){
+                    if($user->getUserId() == $response['data'][0]['owner_id']){
+                        $this->product->setProdId($product->getProdId());
+                        $response = $this->product->removeProduct();
+                        return $response;
+                    }
+                    else{
+                        $this->response->setResponse(0);
+                        $this->response->setMessage("you don't have access");        
+                    }
+                }
+                else{
+                    $this->response->setResponse(0);
+                    $this->response->setMessage("Shop/product does not exist");        
+                }
+            }
+            else{
+                return $response;
+            }
+        }
+        else{
+            $this->response->setResponse(0);
+            $this->response->setMessage("Unauthorized user");
+        }
+
+        return $this->response->getResponse();
     }
 }
 ?>

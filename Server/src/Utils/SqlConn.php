@@ -25,14 +25,31 @@
 			$attributes = $object['fields'];
 			$values     = $object['values'];
 			
-			for($i=0; $i<count($values); $i++){
-				if(is_string($values[$i])){
-					$values[$i]='\'' . mysqli_real_escape_string($this->conn,$values[$i]) . '\'';
+			$query='INSERT INTO ' . $table_name . ' ( ' . join(',',$attributes) . ' )  VALUES';
+
+			if(!array_key_exists("group",$object)){
+				
+				//escaple all strings
+				for($i=0; $i<count($values); $i++){
+					if(is_string($values[$i])){
+						$values[$i]='\'' . mysqli_real_escape_string($this->conn,$values[$i]) . '\'';
+					}
 				}
+				$query = $query. ' ( ' . join(',',$values) . ' ) ';
 			}
 
-			$query='INSERT INTO ' . $table_name . '(' . join(',',$attributes) . ') VALUES(' . join(',',$values) . ')';
-			
+			else{
+				//escaple all strings
+				for($i=0; $i<count($values); $i++){
+					for($j=0; $j<count($values[$i]); $j++){
+						if(is_string($values[$i][$j])){
+							$values[$i][$j]='\'' . mysqli_real_escape_string($this->conn,$values[$i][$j]) . '\'';
+						}
+					}	
+					$values[$i] = ' ( ' . join(',',$values[$i]) . ' ) ';
+				}
+				$query = $query . join(" , ",$values); 
+			}
 			if(array_key_exists("duplicateFlag",$object)){
 				if($object['duplicateFlag']){
 					$updateQuery = ' ON DUPLICATE KEY UPDATE ';
@@ -88,7 +105,6 @@
 			
 			if(array_key_exists("join", $object)){
 				$joinquery='';
-				//echo var_dump($object['join']);
 				foreach ($object['join'] as $join) {
 					$joinquery = $joinquery . ' ' . $join['joinType'] . ' ' . $join['tablename'] . ' ON ' . $join['on'][0] . ' = ' . $join['on'][1] . ' ';	
 					}
@@ -98,16 +114,20 @@
 			
 			if(array_key_exists("where", $object)){
 				$where = $object['where'];
-				if($flag == 0)
-				foreach ($where as $key => $value) {
-					if(is_string($value))
-						$value = '\'' . $value . '\'';
-					$query = $query . ' WHERE ' . $key . '=' . $value;
+				if($flag == 0){
+					foreach ($where as $key => $value) {
+						if(is_string($value))
+							$value = '\'' . $value . '\'';
+						$query = $query . ' WHERE ' . $key . '=' . $value;
+					}
+				}
+				else{
+					$query = $query . ' WHERE ' . $this->whereQueryGenerator($where);
 				}
 			}
 
 			$query = $query . ' ;';
-			//echo $query;
+			echo $query;
 			$resp = array();
 			$response=array("response" =>1 , "message" => "success", "data" => array());
 
@@ -254,6 +274,36 @@
 
 		public function __destruct(){
 			$this->conn->close();
+		}
+
+		public function whereQueryGenerator($where){
+
+			$keys = array_keys($where);
+			$key  = $keys[0];
+
+			if(\is_array($where[$key]) && $key != 'IN'){
+				return ' ' . $key . ' ' . whereQueryGenerator($where[$key]);
+
+			}
+			else if($key == 'IN'){
+				$values = $where[$key]['values'];
+				$key    = $where[$key]['key'];
+				for($i=0;$i<\count($values);$i++){
+					if(is_string($values[$i])){
+						$values[$i] = '\'' . mysqli_real_escape_string($this->conn,$values[$i]) . '\'';
+					}
+				}
+				
+				return ' '.$key.' IN (' .\join(',',$values) .') '; 
+			}
+			else{
+				$value = $where[$key];
+				if(is_string($value)){
+					$value = '\'' . mysqli_real_escape_string($this->conn,$value) . '\'';
+				}
+				return ' ' . $key . ' = ' .$value . ' ';
+			}
+
 		}
 	}
 ?>

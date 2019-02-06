@@ -38,7 +38,6 @@ class ProductController{
         $product->setCategoryId($categoryId);
         $product->setName($this->body['name']);
         $product->setDescription($this->body['description']);
-        $product->setColor($this->body['color']);
         $product->setSize($this->body['size']);
         $product->setNetWeight($this->body['netWeight']);
         $product->setMrpPrice($this->body['mrpPrice']);
@@ -65,6 +64,31 @@ class ProductController{
     public function getShopProducts(){
         $shopID = $this->arguments['shopId'];
         $response = $this->product->getShopProducts($shopID);
+        return $response;
+    }
+
+    public function removeProduct(){
+        
+        $userID     = $this->arguments['userId'];
+        $prodId     = $this->arguments['prodId'];
+        $shopId     = $this->arguments['shopId'];
+        $brandName  = $this->body['brandName'];
+
+        $token  = $this->headers['HTTP_AUTHORIZATION'][0];
+        $user   = new User();
+        $user->setUserId($userID);
+        $user->setToken($token);
+
+        $product = new Product();
+        $product->setProdId($prodId);
+     
+        $response = $this->product->removeProduct($user,$shopID,$product);
+        if($response['response']==0){
+            $logMessage='Error in registering product: '.$product->getProdId().' Error: ' . $response['message'] . '.';
+            
+            $this->logger->info($logMessage);
+        }
+        
         return $response;
     }
 

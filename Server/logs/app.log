@@ -327,3 +327,44 @@
 [2019-02-04 16:12:55] slim-app.INFO: Error in registering product: Espoir Analog Brown Dial Men's Watch-LS5098-2  Error: error in Cannot add or update a child row: a foreign key constraint fails (`ecommerce`.`PRODUCT`, CONSTRAINT `PRODUCT_ibfk_4` FOREIGN KEY (`category_id`) REFERENCES `SHOP_CATEGORY` (`shop_category_id`) ON DELETE CASCADE). [] {"uid":"dba6b7e"}
 [2019-02-04 16:20:17] slim-app.INFO: Error in adding a  Category: watch Error: error in Duplicate entry '6-19' for key 'shop_id'. [] {"uid":"06755e0"}
 [2019-02-04 16:20:33] slim-app.INFO: Error in adding a  Category: watch1 Error: error in Duplicate entry '6-24' for key 'shop_id'. [] {"uid":"293d660"}
+[2019-02-04 17:02:55] slim-app.INFO: Error in registering product: 5 Error: Unauthorized user. [] {"uid":"120e9a2"}
+[2019-02-04 17:12:12] slim-app.INFO: Error in registering product: 5 Error: . [] {"uid":"6d13108"}
+[2019-02-04 17:16:59] slim-app.INFO: Error in registering product: 5 Error: . [] {"uid":"766cffa"}
+[2019-02-04 17:17:17] slim-app.INFO: Error in registering product: 5 Error: . [] {"uid":"e0ad792"}
+[2019-02-04 17:21:51] slim-app.INFO: Error in registering product: 5 Error: Unauthorized user. [] {"uid":"a51d589"}
+[2019-02-04 17:22:04] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"a539fbd"}
+[2019-02-04 17:22:15] slim-app.INFO: Error in registering product: 5 Error: . [] {"uid":"889e91d"}
+[2019-02-04 17:23:02] slim-app.INFO: Error in registering product: 5 Error: you don't have access. [] {"uid":"a0f0b6c"}
+[2019-02-04 17:23:14] slim-app.INFO: Error in registering product: 5 Error: Unauthorized user. [] {"uid":"1817175"}
+[2019-02-04 17:23:27] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"f489c84"}
+[2019-02-04 17:23:50] slim-app.INFO: Error in registering product: 5 Error: you don't have access. [] {"uid":"5f0a3ee"}
+[2019-02-04 17:24:12] slim-app.INFO: Error in registering product: 5 Error: you don't have access. [] {"uid":"4e221e8"}
+[2019-02-04 17:24:43] slim-app.INFO: Error in registering product: 5 Error: you don't have access. [] {"uid":"01b86f0"}
+[2019-02-04 17:25:24] slim-app.INFO: Error in registering product: 5 Error: you don't have access. [] {"uid":"b337964"}
+[2019-02-04 17:25:33] slim-app.INFO: Error in registering product: 5 Error: you don't have access. [] {"uid":"2e71e9f"}
+[2019-02-04 17:25:45] slim-app.INFO: Error in registering product: 5 Error: you don't have access. [] {"uid":"21ed678"}
+[2019-02-04 17:25:54] slim-app.INFO: Error in registering product: 5 Error: you don't have access. [] {"uid":"d60c9a3"}
+[2019-02-04 17:37:25] slim-app.INFO: Error in registering product: 5 Error: Shop does not exist. [] {"uid":"ac2c7d0"}
+[2019-02-04 17:37:58] slim-app.INFO: Error in registering product: 7 Error: Shop/product does not exist. [] {"uid":"0b4592a"}
+[2019-02-04 17:40:05] slim-app.INFO:  [] {"uid":"3b7ca42"}
+[2019-02-04 17:40:34] slim-app.INFO:  [] {"uid":"bb39794"}
+[2019-02-06 11:26:12] slim-app.INFO: Error in adding a  Color: gold,black Error: Unauthorized user. [] {"uid":"276146c"}
+[2019-02-06 11:26:25] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"0a61015"}
+[2019-02-06 11:26:54] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"b1550a1"}
+[2019-02-06 11:27:13] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"7ee3e05"}
+[2019-02-06 11:27:36] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"2bac99a"}
+[2019-02-06 11:28:57] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"97084af"}
+[2019-02-06 11:29:12] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"a84848f"}
+[2019-02-06 11:29:30] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"b9f9d3a"}
+[2019-02-06 11:29:54] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"4610048"}
+[2019-02-06 11:30:49] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"1f442d3"}
+[2019-02-06 11:30:59] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"b8608b6"}
+[2019-02-06 11:31:40] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"f8ccf5f"}
+[2019-02-06 11:31:51] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"f1548c1"}
+[2019-02-06 11:32:34] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"998121e"}
+[2019-02-06 11:33:59] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"f055fbd"}
+[2019-02-06 11:34:54] slim-app.INFO: Error in adding a  Color: gold,black Error: error in Column count doesn't match value count at row 1. [] {"uid":"55191bb"}
+[2019-02-06 11:55:34] slim-app.INFO: Error in adding a  Color: gold,black Error: . [] {"uid":"7fc29d5"}
+[2019-02-06 11:55:52] slim-app.INFO: Error in adding a  Color: gold,black Error: . [] {"uid":"008e8c9"}
+[2019-02-06 11:56:11] slim-app.INFO: Error in adding a  Color: gold,black Error: . [] {"uid":"33920ca"}
+[2019-02-06 11:56:50] slim-app.INFO: Error in adding a  Color: gold,black Error: . [] {"uid":"e547c18"}
