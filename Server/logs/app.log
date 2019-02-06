@@ -368,3 +368,5 @@
 [2019-02-06 11:55:52] slim-app.INFO: Error in adding a  Color: gold,black Error: . [] {"uid":"008e8c9"}
 [2019-02-06 11:56:11] slim-app.INFO: Error in adding a  Color: gold,black Error: . [] {"uid":"33920ca"}
 [2019-02-06 11:56:50] slim-app.INFO: Error in adding a  Color: gold,black Error: . [] {"uid":"e547c18"}
+[2019-02-06 18:42:24] slim-app.INFO: Error in adding a product description with title:  Error: Unauthorized user. [] {"uid":"6c69fa1"}
+[2019-02-06 18:42:40] slim-app.INFO: Error in adding a product description with title:  Error: error in You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. [] {"uid":"39540ad"}

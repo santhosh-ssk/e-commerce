@@ -58,7 +58,6 @@ function viewShops(){
                 "shops": json['data']
             };
             var result=Mustache.render(shopcardsTemplates, shops);
-            //console.log("result",result);
             $('.shopviews').html(result);
         }
     });
