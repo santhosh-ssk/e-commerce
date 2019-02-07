@@ -38,13 +38,16 @@ class ProductController{
         $product->setCategoryId($categoryId);
         $product->setName($this->body['name']);
         $product->setDescription($this->body['description']);
+        
+        /*
         $product->setSize($this->body['size']);
         $product->setNetWeight($this->body['netWeight']);
         $product->setMrpPrice($this->body['mrpPrice']);
         $product->setRetailPrice($this->body['retailPrice']);
         $product->setStock($this->body['stock']);
         $product->setImages($this->body['images']);
-
+        */
+        
         $response = $this->product->registerProduct($user,$brandName,$product);
         if($response['response']==0){
             $logMessage='Error in registering product: '.$product->getName().' Error: ' . $response['message'] . '.';

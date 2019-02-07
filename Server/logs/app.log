@@ -370,3 +370,13 @@
 [2019-02-06 11:56:50] slim-app.INFO: Error in adding a  Color: gold,black Error: . [] {"uid":"e547c18"}
 [2019-02-06 18:42:24] slim-app.INFO: Error in adding a product description with title:  Error: Unauthorized user. [] {"uid":"6c69fa1"}
 [2019-02-06 18:42:40] slim-app.INFO: Error in adding a product description with title:  Error: error in You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1. [] {"uid":"39540ad"}
+[2019-02-07 22:49:47] slim-app.INFO: Error in adding productSku: 6 Error: error in Unknown column 'PRODUCT_SKU.mrpprice' in 'field list'. [] {"uid":"5da3c8f"}
+[2019-02-07 22:50:42] slim-app.INFO: Success User Username: user2@gmail.com as logged [] {"uid":"5bf79cd"}
+[2019-02-07 22:54:38] slim-app.INFO: Error in adding productSku: 6 Error: Unauthorized user. [] {"uid":"b97f596"}
+[2019-02-07 22:54:57] slim-app.INFO: Success User Username: user@gmail.com as logged [] {"uid":"3507b6b"}
+[2019-02-07 22:59:02] slim-app.INFO: Error in registering productSku: 6 Error: Unauthorized user. [] {"uid":"0c27674"}
+[2019-02-07 22:59:19] slim-app.INFO: Error in registering productSku: 6 Error: . [] {"uid":"42c13ad"}
+[2019-02-07 23:00:03] slim-app.INFO: Unauthorized User Username: user1@gmail.com as tried to access [] {"uid":"7e48088"}
+[2019-02-07 23:00:08] slim-app.INFO: Unauthorized User Username: user1@gmail.com as tried to access [] {"uid":"d44343b"}
+[2019-02-07 23:00:15] slim-app.INFO: Success User Username: user2@gmail.com as logged [] {"uid":"6edcf49"}
+[2019-02-07 23:00:25] slim-app.INFO: Error in registering productSku: 6 Error: Unauthorized user. [] {"uid":"8c53cc3"}

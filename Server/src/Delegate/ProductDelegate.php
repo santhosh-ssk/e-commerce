@@ -38,13 +38,16 @@ class ProductDelegate{
                 $this->product->setCategoryId($newProduct->getCategoryId());
                 $this->product->setName($newProduct->getName());
                 $this->product->setDescription($newProduct->getDescription());
+                $this->product->setBrandId($response['last_id']);
+                
+                /*
                 $this->product->setSize($newProduct->getSize());
                 $this->product->setNetWeight($newProduct->getNetWeight());
                 $this->product->setMrpPrice($newProduct->getMrpPrice());
-                $this->product->setBrandId($response['last_id']);
                 $this->product->setStock($newProduct->getStock());
                 $this->product->setRetailPrice($newProduct->getRetailPrice());
                 $this->product->setImages($newProduct->getImages());
+                */
                 
                 $response = $this->product->addProduct();
                 

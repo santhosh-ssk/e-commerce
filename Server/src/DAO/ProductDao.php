@@ -19,15 +19,15 @@
             $object = array(
                 "tablename" => Product::TABLENAME,
                 "fields"    => array(
-                            Product::CATEGORYID,Product::NAME, Product::DESCRIPTION, Product::SIZE,
+                            Product::CATEGORYID,Product::NAME, Product::DESCRIPTION,Product::BRANDID, /*Product::SIZE,
                             Product::NETWEIGHT, Product::MRPPRICE,Product::BRANDID,Product::STOCK,
-                            Product::RETAILPRICE,Product::IMAGES
+                            Product::RETAILPRICE,Product::IMAGES*/
                 ),
                 "values"    => array(
-                            $this->getCategoryId(),$this->getName(), $this->getDescription(),
-                            $this->getSize(), $this->getNetWeight(),   $this->getMrpPrice(),
-                            $this->getBrandId(),$this->getStock(),$this->getRetailPrice(),
-                            $this->getImages()
+                            $this->getCategoryId(),$this->getName(), $this->getDescription(),$this->getBrandId(),
+                            /*$this->getSize(), $this->getNetWeight(),   $this->getMrpPrice(),
+                            $this->getStock(),$this->getRetailPrice(),
+                            $this->getImages()*/
                 )
             );
            
@@ -52,10 +52,7 @@
             $object = array(
                 "tablename" => Product::TABLENAME,
                 "fields"    => array(
-                            Product::PRODID,Product::NAME, Product::DESCRIPTION,
-                            Product::SIZE, Product::NETWEIGHT, Product::MRPPRICE,Product::RETAILPRICE,
-                            Brand::BRANDNAME . " AS BrandName",Product::STOCK,Product::IMAGES,
-                            Product::ISACTIVE,Product::VIEWS,Product::RATING,Product::RATINGCOUNT
+                            Product::PRODID,Product::NAME, Product::DESCRIPTION,Brand::BRANDNAME . " AS BrandName",
                 ),
                 "join"      => array(
                                 array("tablename"  => Brand::TABLENAME,
@@ -76,10 +73,7 @@
             $object = array(
                 "tablename" => Product::TABLENAME,
                 "fields"    => array(
-                            Product::PRODID,Product::NAME, Product::DESCRIPTION, 
-                            Product::SIZE, Product::NETWEIGHT, Product::MRPPRICE,Product::RETAILPRICE,
-                            Brand::BRANDNAME . " AS BrandName",Product::STOCK,Product::IMAGES,
-                            Product::ISACTIVE,Product::VIEWS,Product::RATING,Product::RATINGCOUNT
+                            Product::PRODID,Product::NAME, Product::DESCRIPTION,Brand::BRANDNAME . " AS BrandName", 
                 ),
                 "join"      => array(
                                 array("tablename"  => Brand::TABLENAME,
@@ -137,6 +131,19 @@
             );
             $response = $this->db_connect->deleteRecord($object);
             return $response;
+        }
+
+        public function checkOwnerId($prodId,$testOwnerId)
+        {
+            $this->setProdId($prodId);
+            $result   = $this->getProductShopId();
+            $OwnerId  = $result['data'][0]['owner_id']; 
+            if($result['data'] && $OwnerId == $testOwnerId){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }
     

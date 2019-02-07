@@ -79,7 +79,7 @@
 			}
 			$query = $query . ';';
 			$resp = null;
-				echo $query;
+				//echo $query;
 				if ($this->conn->query($query) === TRUE) {
 					$last_id = $this->conn->insert_id;
 					$resp    = array("response" => 1, "message" => "success", "last_id" => $last_id);
@@ -127,7 +127,7 @@
 			}
 
 			$query = $query . ' ;';
-			echo $query;
+			//echo $query;
 			$resp = array();
 			$response=array("response" =>1 , "message" => "success", "data" => array());
 
@@ -282,7 +282,17 @@
 			$key  = $keys[0];
 
 			if(\is_array($where[$key]) && $key != 'IN'){
-				return ' ' . $key . ' ' . whereQueryGenerator($where[$key]);
+				
+				$tmp = array();
+
+				foreach($where[$key] as $key1 => $value){
+					if(is_string($value)){
+						$value = '\'' . mysqli_real_escape_string($this->conn,$value) . '\'';
+					}
+					array_push($tmp,' ' . $key1 . ' = ' .$value . ' ');	
+				}
+
+				return join(' '.$key.' ',array_push);
 
 			}
 			else if($key == 'IN'){
