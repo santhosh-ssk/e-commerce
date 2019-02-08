@@ -123,11 +123,12 @@
 				}
 				else{
 					$query = $query . ' WHERE ' . $this->whereQueryGenerator($where);
+					echo $this->whereQueryGenerator($where);
 				}
 			}
 
 			$query = $query . ' ;';
-			//echo $query;
+			echo $query;
 			$resp = array();
 			$response=array("response" =>1 , "message" => "success", "data" => array());
 
@@ -291,8 +292,7 @@
 					}
 					array_push($tmp,' ' . $key1 . ' = ' .$value . ' ');	
 				}
-
-				return join(' '.$key.' ',array_push);
+				return join(' '.$key.' ',$tmp);
 
 			}
 			else if($key == 'IN'){

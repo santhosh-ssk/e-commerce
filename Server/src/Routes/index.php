@@ -11,4 +11,5 @@
 	require __DIR__.'/ProductColor.php';
 	require __DIR__.'/ProductDescription.php';
 	require __DIR__.'/ProductSku.php';
+	require __DIR__.'/ProductVariant.php';
 ?>

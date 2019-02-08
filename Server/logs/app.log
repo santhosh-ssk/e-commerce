@@ -380,3 +380,15 @@
 [2019-02-07 23:00:08] slim-app.INFO: Unauthorized User Username: user1@gmail.com as tried to access [] {"uid":"d44343b"}
 [2019-02-07 23:00:15] slim-app.INFO: Success User Username: user2@gmail.com as logged [] {"uid":"6edcf49"}
 [2019-02-07 23:00:25] slim-app.INFO: Error in registering productSku: 6 Error: Unauthorized user. [] {"uid":"8c53cc3"}
+[2019-02-08 09:36:43] slim-app.INFO: Error in adding a  Variant to product: 6 Error: Unauthorized user. [] {"uid":"07ce5b5"}
+[2019-02-08 09:58:28] slim-app.INFO: Error in adding a  Variant to product: 6 Error: . [] {"uid":"51a2b2d"}
+[2019-02-08 09:58:40] slim-app.INFO: Error in adding a  Variant to product: 6 Error: . [] {"uid":"fa0afd0"}
+[2019-02-08 09:58:49] slim-app.INFO: Error in adding a  Variant to product: 6 Error: . [] {"uid":"6c2e694"}
+[2019-02-08 09:59:49] slim-app.INFO: Error in adding a  Variant to product: 6 Error: . [] {"uid":"e61b902"}
+[2019-02-08 10:00:02] slim-app.INFO: Error in adding a  Variant to product: 6 Error: . [] {"uid":"fd257e4"}
+[2019-02-08 10:00:52] slim-app.INFO: Error in adding a  Variant to product: 6 Error: . [] {"uid":"05808b1"}
+[2019-02-08 10:06:25] slim-app.INFO: Error in adding a  Variant to product: 6 Error: error in Unknown column 'VARIANT.variant_id' in 'field list'. [] {"uid":"b583bb8"}
+[2019-02-08 10:18:51] slim-app.INFO: Error in adding a  Variant to product: 6 Error: . [] {"uid":"ca32d34"}
+[2019-02-08 10:19:25] slim-app.INFO: Error in adding a  Variant to product: 6 Error: . [] {"uid":"58a39b3"}
+[2019-02-08 10:22:01] slim-app.INFO: Error in adding a  Variant to product: 6 Error: error in Duplicate entry '1-2' for key 'sku_id'. [] {"uid":"c71a1f5"}
+[2019-02-08 11:08:59] slim-app.INFO: Success User Username: user2@gmail.com as logged [] {"uid":"1c9f69e"}
