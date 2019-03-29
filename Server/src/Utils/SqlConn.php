@@ -123,12 +123,12 @@
 				}
 				else{
 					$query = $query . ' WHERE ' . $this->whereQueryGenerator($where);
-					echo $this->whereQueryGenerator($where);
+					//echo $this->whereQueryGenerator($where);
 				}
 			}
 
 			$query = $query . ' ;';
-			echo $query;
+			//echo $query;
 			$resp = array();
 			$response=array("response" =>1 , "message" => "success", "data" => array());
 

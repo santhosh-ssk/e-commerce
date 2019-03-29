@@ -9,6 +9,7 @@ use App\Utils\Response;
 class ProductSkuDelegate{
     private $productSku;
     private $response;
+    private $product;
 
     public function __construct(){
         $this->productSku     = new ProductSkuDao();

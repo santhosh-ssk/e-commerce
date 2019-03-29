@@ -12,4 +12,5 @@
 	require __DIR__.'/ProductDescription.php';
 	require __DIR__.'/ProductSku.php';
 	require __DIR__.'/ProductVariant.php';
+	require __DIR__.'/ProductImage.php';
 ?>

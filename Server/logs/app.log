@@ -392,3 +392,21 @@
 [2019-02-08 10:19:25] slim-app.INFO: Error in adding a  Variant to product: 6 Error: . [] {"uid":"58a39b3"}
 [2019-02-08 10:22:01] slim-app.INFO: Error in adding a  Variant to product: 6 Error: error in Duplicate entry '1-2' for key 'sku_id'. [] {"uid":"c71a1f5"}
 [2019-02-08 11:08:59] slim-app.INFO: Success User Username: user2@gmail.com as logged [] {"uid":"1c9f69e"}
+[2019-02-18 09:36:49] slim-app.INFO: Error in adding a product description with title:  Error: Unauthorized user. [] {"uid":"e18ce10"}
+[2019-02-18 09:41:13] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"512f79c"}
+[2019-02-18 09:41:39] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"aadb817"}
+[2019-02-18 09:42:43] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"6cb6f11"}
+[2019-02-18 09:43:04] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"8fda6b8"}
+[2019-02-18 09:43:42] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"bdc8b30"}
+[2019-02-18 09:44:12] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"ac7e94b"}
+[2019-02-18 09:44:32] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"e6fefc4"}
+[2019-02-18 09:46:48] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"8f73116"}
+[2019-02-18 09:47:33] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"707bc5f"}
+[2019-02-18 11:03:06] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"074f58f"}
+[2019-02-18 11:08:40] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"371a51e"}
+[2019-02-18 11:09:07] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"ad93f05"}
+[2019-02-18 11:09:16] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"4189e1b"}
+[2019-02-18 11:09:39] slim-app.INFO: Error in adding a product description with title:  Error: . [] {"uid":"8f8bb02"}
+[2019-02-18 11:09:59] slim-app.INFO: Error in adding a product description with title:  Error: error in Column count doesn't match value count at row 2. [] {"uid":"90fe6f7"}
+[2019-02-19 15:29:59] slim-app.INFO: Unauthorized User Username: admin@gmail.com as tried to access [] {"uid":"60ba622"}
+[2019-02-19 15:30:11] slim-app.INFO: Success User Username: admin@gmail.com as logged [] {"uid":"31af0c9"}
